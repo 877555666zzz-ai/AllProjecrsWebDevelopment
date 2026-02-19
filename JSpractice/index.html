@@ -193,36 +193,48 @@
 
 
        <!-- Page 71 -->
-       <div class="app">
-        <h2>Students: Search + Filter + Sort</h2>
+    <div class="app">
+  <div class="top">
+    <div>
+      <h2>Students Directory</h2>
+      <p class="sub">Search • Filter • Sort</p>
+    </div>
+    <div class="count" id="count">50 students</div>
+  </div>
 
-        <div class="row">
-          <input type="text" id="search" placeholder="Поиск по имени...">
+  <div class="filters">
+    <input type="text" id="search" placeholder="Search: name, city, university..." />
 
-          <select id="course">
-            <option value="all">Все курсы</option>
-            <option value="1">1 Курс</option>
-            <option value="2">2 Курс</option>
-            <option value="3">3 Курс</option>
-          </select>
+    <select id="course">
+      <option value="all">All courses</option>
+      <option value="1">Course 1</option>
+      <option value="2">Course 2</option>
+      <option value="3">Course 3</option>
+    </select>
 
-          <select id="age">
-            <option value="all">Все возрасты</option>
-          </select>
+    <select id="age">
+      <option value="all">All ages</option>
+    </select>
 
-          <select id="sort">
-            <option value="none">Без сортирровки</option>
-            <option value="az">A -> Z</option>
-            <option value="za">Z -> A</option>
-          </select>
-          <button id="reset">Reset</button>
-        </div>
-        <ul id="list"></ul>
-       </div>
+    <select id="city">
+      <option value="all">All cities</option>
+    </select>
 
+    <select id="place">
+      <option value="all">All universities</option>
+    </select>
 
+    <select id="sort">
+      <option value="none">No sort</option>
+      <option value="az">A → Z</option>
+      <option value="za">Z → A</option>
+    </select>
 
+    <button id="reset" type="button">Reset</button>
+  </div>
 
+  <ul id="list" class="list"></ul>
+</div>
     <script src="script.js"></script>
 </body>
 </html>

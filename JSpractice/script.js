@@ -398,23 +398,66 @@
 
 // Page 71
 const students = [
-  { name: "Timur", surname: "Bekov", age: 18, course: 1 },
-  { name: "Sofia", surname: "Mukhina", age: 19, course: 2 },
-  { name: "Amina", surname: "Kenzhebaeva", age: 18, course: 1 },
-  { name: "Dias", surname: "Muratov", age: 21, course: 3 },
-  { name: "Ilyas", surname: "Karimov", age: 20, course: 2 },
-  { name: "Madina", surname: "Zhaksylyk", age: 18, course: 1 },
-  { name: "Noah", surname: "Parker", age: 19, course: 1 },
-  { name: "Sanzhar", surname: "Ryskul", age: 22, course: 3 },
-  { name: "Elif", surname: "Yilmaz", age: 20, course: 2 },
-  { name: "Ramil", surname: "Guseynov", age: 21, course: 2 },
-  { name: "Aisulu", surname: "Tleubayeva", age: 22, course: 3 },
-  { name: "Arman", surname: "Suleimenov", age: 18, course: 1 },
-  { name: "Karina", surname: "Volkova", age: 19, course: 2 },
-  { name: "Ernar", surname: "Zhumanov", age: 18, course: 1 },
-  { name: "Mira", surname: "Petrova", age: 18, course: 1 },
-  { name: "Aziza", surname: "Usmanova", age: 20, course: 2 },
-  { name: "Omar", surname: "Hassan", age: 23, course: 3 },
+  { name: "Timur", surname: "Bekov", age: 18, course: 1, city: "Almaty", place: "SDU University" },
+  { name: "Sofia", surname: "Mukhina", age: 19, course: 2, city: "Astana", place: "ENU" },
+  { name: "Amina", surname: "Kenzhebaeva", age: 18, course: 1, city: "Shymkent", place: "M.Auezov University" },
+  { name: "Dias", surname: "Muratov", age: 21, course: 3, city: "Karaganda", place: "KSTU" },
+  { name: "Ilyas", surname: "Karimov", age: 20, course: 2, city: "Almaty", place: "KazNU" },
+  { name: "Madina", surname: "Zhaksylyk", age: 18, course: 1, city: "Astana", place: "AITU" },
+  { name: "Noah", surname: "Parker", age: 19, course: 1, city: "Almaty", place: "KIMEP" },
+  { name: "Sanzhar", surname: "Ryskul", age: 22, course: 3, city: "Taraz", place: "TarSU" },
+  { name: "Elif", surname: "Yilmaz", age: 20, course: 2, city: "Astana", place: "ENU" },
+  { name: "Ramil", surname: "Guseynov", age: 21, course: 2, city: "Almaty", place: "KazNU" },
+  { name: "Aisulu", surname: "Tleubayeva", age: 22, course: 3, city: "Aktobe", place: "Zhubanov University" },
+  { name: "Arman", surname: "Suleimenov", age: 18, course: 1, city: "Pavlodar", place: "Toraighyrov University" },
+  { name: "Karina", surname: "Volkova", age: 19, course: 2, city: "Karaganda", place: "KarSU" },
+  { name: "Ernar", surname: "Zhumanov", age: 18, course: 1, city: "Kokshetau", place: "Sh.Ualikhanov University" },
+  { name: "Mira", surname: "Petrova", age: 18, course: 1, city: "Almaty", place: "Satbayev University" },
+  { name: "Aziza", surname: "Usmanova", age: 20, course: 2, city: "Astana", place: "AITU" },
+  { name: "Omar", surname: "Hassan", age: 23, course: 3, city: "Shymkent", place: "M.Auezov University" },
+
+  { name: "Aruzhan", surname: "Tulegenova", age: 18, course: 1, city: "Almaty", place: "KazNU" },
+  { name: "Nursultan", surname: "Serik", age: 21, course: 3, city: "Astana", place: "ENU" },
+  { name: "Madi", surname: "Iskakov", age: 20, course: 2, city: "Shymkent", place: "Miras University" },
+  { name: "Aigerim", surname: "Bekturova", age: 18, course: 1, city: "Almaty", place: "SDU University" },
+  { name: "Zan", surname: "Lee", age: 19, course: 1, city: "Astana", place: "AITU" },
+  { name: "Asyl", surname: "Kairat", age: 22, course: 3, city: "Aktau", place: "Caspian University" },
+  { name: "Zeynep", surname: "Demir", age: 20, course: 2, city: "Almaty", place: "KIMEP" },
+  { name: "Malik", surname: "Rahman", age: 21, course: 3, city: "Karaganda", place: "KSTU" },
+  { name: "Dana", surname: "Sadykova", age: 19, course: 2, city: "Astana", place: "ENU" },
+  { name: "Nuray", surname: "Samatova", age: 18, course: 1, city: "Taraz", place: "TarSU" },
+  { name: "Sultan", surname: "Beketov", age: 20, course: 2, city: "Pavlodar", place: "Toraighyrov University" },
+  { name: "Assel", surname: "Kenzhina", age: 21, course: 3, city: "Almaty", place: "Satbayev University" },
+  { name: "Alina", surname: "Khalitova", age: 19, course: 2, city: "Astana", place: "AITU" },
+  { name: "Bekzat", surname: "Nurgali", age: 18, course: 1, city: "Aktobe", place: "Zhubanov University" },
+  { name: "Maksim", surname: "Ivanov", age: 22, course: 3, city: "Karaganda", place: "KarSU" },
+  { name: "Dina", surname: "Kuznetsova", age: 20, course: 2, city: "Almaty", place: "KazNU" },
+  { name: "Ibrahim", surname: "Sadykov", age: 19, course: 1, city: "Shymkent", place: "Miras University" },
+  { name: "Saniya", surname: "Ermek", age: 18, course: 1, city: "Kokshetau", place: "Sh.Ualikhanov University" },
+  { name: "Eldar", surname: "Akhmetov", age: 21, course: 3, city: "Astana", place: "ENU" },
+  { name: "Amina", surname: "Sarsen", age: 20, course: 2, city: "Almaty", place: "KIMEP" },
+  { name: "Ilham", surname: "Nabiyev", age: 22, course: 3, city: "Aktau", place: "Caspian University" },
+  { name: "Fariza", surname: "Zharas", age: 19, course: 2, city: "Taraz", place: "TarSU" },
+  { name: "Rustem", surname: "Kenzhe", age: 18, course: 1, city: "Pavlodar", place: "Toraighyrov University" },
+  { name: "Moldir", surname: "Asanova", age: 20, course: 2, city: "Almaty", place: "SDU University" },
+  { name: "Adil", surname: "Zhakupov", age: 21, course: 3, city: "Astana", place: "AITU" },
+  { name: "Kamila", surname: "Rakhimova", age: 18, course: 1, city: "Aktobe", place: "Zhubanov University" },
+  { name: "Yernur", surname: "Orazbay", age: 22, course: 3, city: "Karaganda", place: "KSTU" },
+  { name: "Sabina", surname: "Turan", age: 19, course: 2, city: "Shymkent", place: "M.Auezov University" },
+  { name: "Murat", surname: "Kozhamkul", age: 20, course: 2, city: "Almaty", place: "Satbayev University" },
+  { name: "Anel", surname: "Zhunis", age: 18, course: 1, city: "Astana", place: "ENU" },
+  { name: "Aldiyar", surname: "Bekmurat", age: 21, course: 3, city: "Kokshetau", place: "Sh.Ualikhanov University" },
+  { name: "Madina", surname: "Kulan", age: 20, course: 2, city: "Taraz", place: "TarSU" },
+  { name: "Alisher", surname: "Nazarov", age: 19, course: 1, city: "Almaty", place: "KazNU" },
+  { name: "Viktoria", surname: "Smirnova", age: 22, course: 3, city: "Karaganda", place: "KarSU" },
+  { name: "Dias", surname: "Zholdas", age: 18, course: 1, city: "Aktau", place: "Caspian University" },
+  { name: "Ayan", surname: "Sapar", age: 20, course: 2, city: "Astana", place: "AITU" },
+  { name: "Zhanel", surname: "Bekova", age: 19, course: 2, city: "Almaty", place: "KIMEP" },
+  { name: "Artem", surname: "Sokolov", age: 21, course: 3, city: "Pavlodar", place: "Toraighyrov University" },
+  { name: "Alua", surname: "Erzhan", age: 18, course: 1, city: "Shymkent", place: "Miras University" },
+  { name: "Rauan", surname: "Zhunusov", age: 22, course: 3, city: "Aktobe", place: "Zhubanov University" },
+  { name: "Sofia", surname: "Ismailova", age: 20, course: 2, city: "Taraz", place: "TarSU" },
+  { name: "Emir", surname: "Kaya", age: 19, course: 1, city: "Almaty", place: "SDU University" },
 ];
 
 const list = document.querySelector("#list");
@@ -423,14 +466,33 @@ const courseSelect = document.querySelector("#course");
 const sortSelect = document.querySelector("#sort");
 const resetBtn = document.querySelector("#reset");
 const ageSelect = document.querySelector("#age");
+const citySelect = document.querySelector("#city");
+const placeSelect = document.querySelector("#place");
 
-// Заполняем select возрастами автоматически
+
 const ages = [...new Set(students.map(s => s.age))].sort((a,b)=>a-b);
 ages.forEach(age => {
   const opt = document.createElement("option");
   opt.value = age;
   opt.textContent = age;
   ageSelect.appendChild(opt);
+});
+const cities = [...new Set(students.map(s => s.city))].sort((a,b)=>a.localeCompare(b));
+cities.forEach(city => {
+  const opt = document.createElement("option");
+  opt.value = city;
+  opt.textContent = city;
+  citySelect.appendChild(opt);
+});
+
+
+
+const places = [...new Set(students.map(s => s.place))].sort((a,b)=>a.localeCompare(b));
+places.forEach(place => {
+  const opt = document.createElement("option");
+  opt.value = place;
+  opt.textContent = place;
+  placeSelect.appendChild(opt);
 });
 
 function render(arr) {
@@ -441,6 +503,8 @@ function render(arr) {
         <strong>${s.name} ${s.surname}</strong>
         <span class="badge">Age: ${s.age}</span>
         <span class="badge">Course: ${s.course}</span>
+        <span class="badge">City: ${s.city}</span>
+        <span class="badge">Study: ${s.place}</span>
       </li>
     `;
   });
@@ -451,11 +515,17 @@ function applyAll() {
   const courseValue = courseSelect.value;
   const sortValue = sortSelect.value;
   const ageValue = ageSelect.value;
+  const cityValue = citySelect.value;
+  const placeValue = placeSelect.value;
 
   let result = students;
 
   if (text !== "") {
-    result = result.filter(s => (s.name + " " + s.surname).toLowerCase().includes(text));
+    result = result.filter(s =>
+      (s.name + " " + s.surname + " " + s.city + " " + s.place)
+        .toLowerCase()
+        .includes(text)
+    );
   }
 
   if (courseValue !== "all") {
@@ -466,12 +536,24 @@ function applyAll() {
     result = result.filter(s => s.age === Number(ageValue));
   }
 
+  if (cityValue !== "all") {
+    result = result.filter(s => s.city === cityValue);
+  }
+
+  if (placeValue !== "all") {
+    result = result.filter(s => s.place === placeValue);
+  }
+
   if (sortValue === "az") {
-    result = [...result].sort((a, b) => (a.name + " " + a.surname).localeCompare(b.name + " " + b.surname));
+    result = [...result].sort((a, b) =>
+      (a.name + " " + a.surname).localeCompare(b.name + " " + b.surname)
+    );
   }
 
   if (sortValue === "za") {
-    result = [...result].sort((a, b) => (b.name + " " + b.surname).localeCompare(a.name + " " + a.surname));
+    result = [...result].sort((a, b) =>
+      (b.name + " " + b.surname).localeCompare(a.name + " " + a.surname)
+    );
   }
 
   render(result);
@@ -482,11 +564,18 @@ courseSelect.addEventListener("change", applyAll);
 sortSelect.addEventListener("change", applyAll);
 ageSelect.addEventListener("change", applyAll);
 
+citySelect.addEventListener("change", applyAll);
+placeSelect.addEventListener("change", applyAll);
+
 resetBtn.addEventListener("click", function () {
   searchInput.value = "";
   courseSelect.value = "all";
   sortSelect.value = "none";
   ageSelect.value = "all";
+
+  citySelect.value = "all";
+  placeSelect.value = "all";
+
   render(students);
 });
 
