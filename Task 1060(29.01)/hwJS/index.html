@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="MainContainer">
+    <div class="form">
+        <div class="top">
+            <h2>Mortgage Calculator</h2>
+            <span id="themeBtn">Dark Mode</span>
+        </div>
+
+        <label>Mortgage Amount</label>
+        <div class="field">
+            <span>£</span>
+            <input type="number" id="amount">
+        </div>
+
+        <div class="row">
+            <div>
+                <label>Mortgage Term</label>
+                <div class="field">
+                    <input type="number" id="years">
+                    <span>years</span>
+                </div>
+            </div>
+
+            <div>
+                <label>Interest Rate</label>
+                <div class="field">
+                    <input type="number" id="rate">
+                    <span>%</span>
+                </div>
+            </div>
+        </div>
+
+        <label>Mortgage Type</label>
+
+        <label class="radio">
+            <input type="radio" name="type" checked>
+            Repayment
+        </label>
+
+        <label class="radio">
+            <input type="radio" name="type">
+            Interest Only
+        </label>
+
+        <button id="btn">Calculate Repayments</button>
+    </div>
+
+    <div class="result">
+        <h3>Results shown here</h3>
+        <p id="output">
+            Complete the form and click “calculate repayments”
+            to see what your monthly repayments would be.
+        </p>
+    </div>
+
+</div>
+
+<script src="sctipt.js"></script>
+</body>
+</html>

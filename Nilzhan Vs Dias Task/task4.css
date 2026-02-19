@@ -1,0 +1,47 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+.log h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 100px;
+}
+.log{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+.log input{
+    width: 300px;
+    height: 30px;
+    border: 1px solid rgb(226, 226, 226);
+}
+.log p{
+    text-align: left;
+    font-weight: bold;
+    font-size: 12px;
+}
+.check{
+    display: flex;
+    margin-right: 205px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    width: 310px;
+    height: 30px;
+    background-color: rgb(34, 166, 34);
+    color: white;
+    border: none;
+}
+.main{
+    border: 2px solid;
+    padding: 50px;
+}

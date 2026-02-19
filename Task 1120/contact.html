@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Livvic:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body class="theme-dark">
+  <div class="top">
+    <div class="container">
+      <div class="nav">
+        <div class="navLeft">
+          <div class="brand">myteam</div>
+          <div class="links">
+            <a href="index.html">home</a>
+            <a href="#">about</a>
+          </div>
+        </div>
+
+        <div class="navRight">
+          <div class="themeWrap">
+            <div class="themeText" id="themeText">dark</div>
+            <div class="themeToggle" id="themeToggle">
+              <div class="themeKnob"></div>
+            </div>
+          </div>
+          <a class="btnOutline" href="contact.html">contact us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="decor1"></div>
+    <div class="decor2"></div>
+
+    <div class="container">
+      <div class="grid">
+        <div>
+          <h1 class="title">Contact <span class="accent">us</span></h1>
+          <div class="line"></div>
+          <p class="text">
+            Tell us about your project. We’ll reach out with next steps and a simple plan.
+          </p>
+        </div>
+
+        <form class="form">
+          <div class="field">
+            <input class="input" type="text" placeholder="Name" required>
+          </div>
+
+          <div class="field">
+            <input class="input" type="email" placeholder="Email" required>
+          </div>
+
+          <div class="field">
+            <input class="input" type="text" placeholder="Company" required>
+          </div>
+
+          <div class="field">
+            <input class="input" type="text" placeholder="Title" required>
+          </div>
+
+          <div class="field">
+            <textarea class="input" placeholder="Message" required></textarea>
+          </div>
+
+          <button class="submit" type="submit">submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const body = document.body;
+    const toggle = document.getElementById("themeToggle");
+    const label = document.getElementById("themeText");
+
+    function setTheme(mode){
+      if(mode === "light"){
+        body.classList.remove("theme-dark");
+        body.classList.add("theme-light");
+        if(label) label.textContent = "light";
+        localStorage.setItem("theme","light");
+      }else{
+        body.classList.remove("theme-light");
+        body.classList.add("theme-dark");
+        if(label) label.textContent = "dark";
+        localStorage.setItem("theme","dark");
+      }
+    }
+
+    const saved = localStorage.getItem("theme");
+    if(saved === "light"){ setTheme("light"); } else { setTheme("dark"); }
+
+    toggle.addEventListener("click", () => {
+      const isLight = body.classList.contains("theme-light");
+      setTheme(isLight ? "dark" : "light");
+    });
+  </script>
+</body>
+</html>

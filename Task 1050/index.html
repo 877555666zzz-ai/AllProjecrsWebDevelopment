@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Comments UI</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="page">
+
+  <div class="comment">
+    <div class="score">
+      <button>+</button>
+      <span>12</span>
+      <button>−</button>
+    </div>
+
+    <div class="content">
+      <div class="header">
+        <div class="user">
+          <img src="гарри.jpg">
+          <span class="name">amyrobson</span>
+          <span class="time">1 month ago</span>
+        </div>
+        <div class="action reply">Reply</div>
+      </div>
+
+      <p>
+        Impressive! Though it seems the drag feature could be improved.
+        But overall it looks incredible. You've nailed the design and
+        the responsiveness at various breakpoints works really well.
+      </p>
+    </div>
+  </div>
+
+  <div class="comment">
+    <div class="score">
+      <button>+</button>
+      <span>5</span>
+      <button>−</button>
+    </div>
+
+    <div class="content">
+      <div class="header">
+        <div class="user">
+          <img src="рон.jpg">
+          <span class="name">maxblagun</span>
+          <span class="time">2 weeks ago</span>
+        </div>
+        <div class="action reply">Reply</div>
+      </div>
+
+      <p>
+        Woah, your project looks awesome! How long have you been coding for?
+        I'm still new, but think I want to dive into React as well soon.
+        Perhaps you can give me an insight on where I can learn React?
+      </p>
+    </div>
+  </div>
+
+  <div class="comment reply-block">
+    <div class="score">
+      <button>+</button>
+      <span>4</span>
+      <button>−</button>
+    </div>
+
+    <div class="content">
+      <div class="header">
+        <div class="user">
+          <img src="эмма 2.jpg">
+          <span class="name">ramsesmiron</span>
+          <span class="time">1 week ago</span>
+        </div>
+        <div class="action reply">Reply</div>
+      </div>
+
+      <p>
+        <span class="mention">@maxblagun</span>
+        If you're still new, I'd recommend focusing on the fundamentals
+        of HTML, CSS, and JS before considering React.
+      </p>
+    </div>
+  </div>
+
+  <div class="comment reply-block">
+    <div class="score">
+      <button>+</button>
+      <span>2</span>
+      <button>−</button>
+    </div>
+
+    <div class="content">
+      <div class="header">
+        <div class="user">
+          <img src="эмма.jpg">
+          <span class="name">juliusomo</span>
+          <span class="you">you</span>
+          <span class="time">2 days ago</span>
+        </div>
+        <div class="action delete">Delete</div>
+        <div class="action edit">Edit</div>
+      </div>
+
+      <p>
+        <span class="mention">@ramsesmiron</span>
+        I couldn't agree more with this. Everything moves so fast and it
+        always seems like everyone knows the newest library/framework.
+      </p>
+    </div>
+  </div>
+
+  <div class="add-comment">
+    <img src="эндрю.jpg">
+    <input type="text" placeholder="Add a comment...">
+    <button>SEND</button>
+  </div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>

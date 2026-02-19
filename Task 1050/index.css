@@ -1,0 +1,159 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f5f6fa;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.page {
+  max-width: 760px;
+  margin: 60px auto;
+}
+
+.comment {
+  background: #fff;
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.reply-block {
+  margin-left: 80px;
+}
+
+.score {
+  background: #f5f6fa;
+  border-radius: 8px;
+  width: 40px;
+  text-align: center;
+  padding: 8px 0;
+  font-weight: bold;
+  color: #5357b6;
+}
+
+.score button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #c3c4ef;
+  font-size: 18px;
+}
+
+.score span {
+  display: block;
+  margin: 6px 0;
+}
+
+.content {
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.name {
+  font-weight: bold;
+  color: #000;
+}
+
+.you {
+  background: #5357b6;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.time {
+  color: #888;
+  font-size: 14px;
+}
+
+.action {
+  color: #5357b6;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.delete {
+  color: #ed6368;
+}
+
+.edit {
+  margin-left: 16px;
+}
+
+p {
+  color: #555;
+  line-height: 1.5;
+}
+
+.mention {
+  color: #5357b6;
+  font-weight: bold;
+}
+
+.add-comment {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.add-comment img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.add-comment input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.add-comment button {
+  background: #5357b6;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:hover{
+  cursor: pointer;
+  color: rgb(166, 0, 255);
+  transition: 0.5s;
+}
+button:hover{
+  cursor: pointer;
+  color: rgb(166, 0, 255);
+  transition: 0.5s;
+}

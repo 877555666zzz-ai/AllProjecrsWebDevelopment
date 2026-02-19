@@ -1,0 +1,152 @@
+*{ 
+  box-sizing:border-box; 
+}
+body{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  font-family: 'Times New Roman', Times, serif;
+  gap:16px;
+}
+.top{
+  width:420px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  font-size:32px;
+}
+.theme-btn{
+  border:none;
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+}
+.MainContainer{
+  width:420px;
+  border-radius:22px;
+  padding:18px;
+  box-shadow: 0 10px 50px rgba(0,0,0,.35);
+}
+.display{
+  height:110px;
+  border-radius:14px;
+  padding:16px;
+  margin-bottom:16px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  gap:6px;
+}
+.screen{
+  font-size:50px;
+  font-weight:800;
+  text-align:right;
+  line-height:1;
+}
+.keys{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:14px;
+}
+.btn{
+  height:60px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  font-size:26px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.span-2{ grid-column: span 2; }
+.span-3{ grid-column: span 3; }
+body.dark{
+  background:#3b4664;
+  color:#fff;
+}
+body.dark .calc{
+  background:#252d44;
+}
+body.dark .display{
+  background:#171f32;
+  color:#fff;
+}
+body.dark .keys{
+  background:#252d44;
+}
+body.dark .theme-btn{
+  background:#252d44;
+  color:#fff;
+}
+body.dark .btn{
+  background:#eae3dc;
+  color:#2f3441;
+  box-shadow: 0 5px 0 #b3a79c;
+}
+body.dark .btn:active{
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 #b3a79c;
+}
+body.dark .fn{
+  background:#647198;
+  color:#fff;
+  box-shadow: 0 5px 0 #42556b;
+  font-size:18px;
+}
+body.dark .fn:active{
+  box-shadow: 0 3px 0 #42556b;
+}
+body.dark .op{
+  background:#eae3dc;
+  color:#2f3441;
+  box-shadow: 0 5px 0 #b3a79c;
+}
+body.dark .eq{
+  background:#d13f30;
+  color:#fff;
+  box-shadow: 0 5px 0 #8f2316;
+}
+body.dark .eq:active{
+  box-shadow: 0 3px 0 #8f2316;
+}
+body.light{
+  background:#f2f3f7;
+  color:#1f2430;
+}
+body.light .logo{
+  color:#1f2430;
+}
+body.light .calc{
+  background:#ffffff;
+}
+body.light .display{
+  background:#2b2f3a;
+  color:#fff;
+}
+body.light .keys{
+  background:#ffffff;
+}
+body.light .theme-btn{
+  background:#ffffff;
+  color:#1f2430;
+  box-shadow: 0 3px 0 #c9ceda;
+}
+body.light .btn{
+  background:#eae3dc;
+  color:#2f3441;
+  box-shadow: 0 5px 0 #b3a79c;
+}
+body.light .btn:active{
+  box-shadow: 0 3px 0 #b3a79c;
+}
+body.light .fn{
+  background:#647198;
+  color:#fff;
+  box-shadow: 0 5px 0 #42556b;
+}
+body.light .eq{
+  background:#d13f30;
+  color:#fff;
+  box-shadow: 0 5px 0 #8f2316;
+}

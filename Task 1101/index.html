@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Coding Conf - Ticket Generator</title>
+
+  <!-- Font that matches the vibe (rounded/mono-ish look) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:"Space Mono", monospace;
+      color:#fff;
+      background:#090a17;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    .wrap{
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px 18px 70px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      margin-top: 10px;
+      margin-bottom: 38px;
+      opacity: .95;
+    }
+    .mark{
+      width: 34px;
+      height: 24px;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #ff7a6b, #ff5e7a);
+      position:relative;
+      box-shadow: 0 10px 24px rgba(255, 120, 100, .18);
+    }
+    .mark::before{
+      content:"";
+      position:absolute;
+      inset: 6px 10px;
+      border-radius: 8px;
+      background: rgba(10,10,20,.65);
+      transform: skewX(-12deg);
+    }
+    .brandName{
+      margin:0;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing:.6px;
+    }
+    .title{
+      margin: 0;
+      text-align:center;
+      font-weight: 700;
+      font-size: 44px;
+      line-height: 1.1;
+      letter-spacing: .2px;
+    }
+    .subtitle{
+      margin: 16px 0 34px;
+      text-align:center;
+      color: rgba(255,255,255,.68);
+      font-size: 14px;
+      letter-spacing: .2px;
+    }
+    .panel{
+      width: 520px;
+      max-width: 100%;
+    }
+    .uploadIcon{
+      width: 20px;
+      height: 20px;
+      object-fit:contain;
+      opacity:.95;
+    }
+    .uploadText{
+      margin:0;
+      color: rgba(255,255,255,.62);
+      font-size: 13px;
+    }
+    .hint{
+      margin: 10px 0 0;
+      font-size: 12px;
+      color: rgba(255,255,255,.42);
+      display:flex;
+      align-items:center;
+      gap: 8px;
+    }
+    .hintDot{
+      width: 10px; height: 10px;
+      border-radius:999px;
+      border: 2px solid rgba(255,255,255,.35);
+      opacity:.8;
+    }
+    .input{
+      width:100%;
+      height: 54px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      color:#fff;
+      padding: 0 16px;
+      font-family: inherit;
+      font-size: 14px;
+      outline:none;
+    }
+    .input::placeholder{ color: rgba(255,255,255,.45); }
+    .input:focus{
+      border-color: rgba(255, 120, 100, .55);
+      box-shadow: 0 0 0 4px rgba(255, 120, 100, .10);
+    }
+    .btn{
+      width:100%;
+      height: 56px;
+      border:0;
+      border-radius: 14px;
+      margin-top: 26px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 14px;
+      cursor:pointer;
+      color:#2b0b0e;
+      background: linear-gradient(180deg, #ff7f6e, #ff6f7b);
+      box-shadow: 0 18px 34px rgba(255, 120, 100, .18);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg">
+    <div class="ringA"></div>
+    <div class="ringB"></div>
+    <div class="scribble"></div>
+    <div class="softCircle"></div>
+  </div>
+
+  <div class="wrap">
+
+    <div class="brand">
+      <div class="mark"></div>
+      <p class="brandName">Coding Conf</p>
+    </div>
+
+    <h1 class="title">Your Journey to Coding Conf<br>2025 Starts Here!</h1>
+    <p class="subtitle">Secure your spot at next year’s biggest coding conference.</p>
+
+    <div class="panel">
+      <p class="label">Upload Avatar</p>
+
+      <div class="upload">
+        <div class="uploadInner">
+          <div class="uploadIconBox">
+            <img class="uploadIcon" src="download.png" alt="upload">
+          </div>
+          <p class="uploadText">Drag and drop or click to upload</p>
+        </div>
+
+        <p class="hint">
+          <span class="hintDot"></span>
+          Upload your photo (JPG or PNG, max size: 500KB).
+        </p>
+      </div>
+
+      <p class="label">Full Name</p>
+      <input class="input" type="text" placeholder="" />
+
+      <p class="label">Email Address</p>
+      <input class="input" type="email" placeholder="example@email.com" />
+
+      <p class="label">GitHub Username</p>
+      <input class="input" type="text" placeholder="@yourusername" />
+
+      <button class="btn" type="button">Generate My Ticket</button>
+    </div>
+
+  </div>
+</body>
+</html>

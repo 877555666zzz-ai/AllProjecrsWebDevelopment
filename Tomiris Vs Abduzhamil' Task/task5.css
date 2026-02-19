@@ -1,0 +1,48 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(51, 29, 72);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.main{
+    background-color: rgb(30, 35, 87);
+    color: white;
+    width: 250px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.first{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.second{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.third{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.fourth{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.todo{
+    background-color: rgb(56, 62, 107);
+    color: white;
+    padding: 4px;
+    font-size: 13px;
+    position: absolute;
+    margin-bottom: 300px;
+    margin-right: 200px;
+}

@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f7f3ef;
+}
+
+.app {
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.tabs {
+  display: flex;
+  border: 2px solid #000;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.tab {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: #ffd34d;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 20px;
+}
+
+.left {
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.select,
+.checkbox,
+.btn {
+  border: 2px solid #000;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  background: #fff;
+}
+
+.card {
+  background: linear-gradient(135deg, #ff8bdc, #ff9de2);
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 40px 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tag {
+  display: inline-block;
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 4px 12px;
+  background: #fff;
+  margin-bottom: 30px;
+}
+
+.question {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hint {
+  opacity: 0.7;
+}
+
+.progress {
+  margin-top: 40px;
+}
+
+.bar {
+  width: 60px;
+  height: 6px;
+  background: #fff;
+  margin: 0 auto 6px;
+  border-radius: 10px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.btn.yellow {
+  background: #ffd34d;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page {
+  opacity: 0.7;
+}
+
+.right {
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.stats-title {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.stat {
+  border: 2px solid #000;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 12px;
+  color: #000;
+}
+
+.stat.blue { background: #9bb3f0; }
+.stat.green { background: #4be0c4; }
+.stat.pink { background: #f47ca8; }
+.stat.purple { background: #ff9de2; }
+
+.stat-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.num {
+  font-size: 24px;
+  font-weight: bold;
+}

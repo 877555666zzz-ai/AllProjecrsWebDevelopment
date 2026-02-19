@@ -1,0 +1,23 @@
+.nav{
+    width: 350px;
+    background-color: skyblue;
+}
+.p1{
+    display: flex;
+    align-items: center;
+}
+.p2{
+    width: 120px;
+    height: 20px;
+}
+h2{
+    color: rgb(23, 123, 210);
+}
+.MainContainer{
+    justify-content: center;
+    margin-top: -10px;
+}
+p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}

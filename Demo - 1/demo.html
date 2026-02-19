@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="demo.css">k
+</head>
+<body>
+  <div class="wrapper">
+    <!-- TASK 1 -->
+    <div class="card">
+      <h2>TASK 1 - Change Shape on Click</h2>
+      <div class="row">
+        <div id="shapeBox" aria-label="shape box"></div>
+        <button id="shapeBtn">Change shape</button>
+      </div>
+      <div class="hint">square → rectangle → square</div>
+    </div>
+
+    <!-- TASK 2 -->
+    <div class="card">
+      <h2>TASK 2 - Show / Hide block</h2>
+      <div class="row">
+        <button id="toggleBlockBtn">Show / Hide</button>
+      </div>
+      <div id="hideBlock" class="result">
+        This block can be shown/hidden.
+      </div>
+    </div>
+
+    <!-- TASK 3 -->
+    <div class="card">
+      <h2>TASK 3 - Dark mode (simple) brown/beige</h2>
+      <div class="row">
+        <button id="darkBtn">Toggle Dark Mode</button>
+      </div>
+    </div>
+
+    <!-- TASK 4 -->
+    <div class="card">
+      <h2>TASK 4 - Toggle message</h2>
+      <div class="row">
+        <button id="msgBtn">Toggle message</button>
+      </div>
+      <div id="msg" class="result">Message: ON</div>
+    </div>
+
+    <!-- TASK 5 -->
+    <div class="card">
+      <h2>TASK 5 - input (live)</h2>
+      <div class="row">
+        <input id="liveInput" type="text" placeholder="Type here..." />
+      </div>
+      <div id="liveOut" class="result">Live: </div>
+    </div>
+
+    <!-- TASK 6 -->
+    <div class="card">
+      <h2>TASK 6 - submit (form)</h2>
+      <form id="form">
+        <div class="row">
+          <input id="name" type="text" placeholder="Name" required />
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+      <div id="formOut" class="result">Form status: -</div>
+    </div>
+  <script src="demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+*{
+  box-sizing:border-box; 
+}
+body{
+  margin:0;
+  background:#ffffff;
+  color:#111;
+}
+.top{
+  width:1100px;
+  margin:0 auto;
+  padding:22px 10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #eee;
+}
+.logoImg{
+  height:22px;
+  display:block;
+}
+.menu{
+  display:flex;
+  gap:26px;
+  margin-right: 400px;
+}
+.p1{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  color: gray;
+}
+.p1:hover{
+  color: #000000;
+  cursor: pointer;
+}
+.rightTop{
+  display:flex;
+  align-items:center;
+  gap:35px;
+}
+.cartTop{
+  width:22px;
+  height:22px;
+  opacity:0.9;
+}
+.avatar{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:2px solid transparent;
+}
+.avatar:hover{
+  border-color:#ff8a1f;
+}
+.MainContainer{
+  width:1100px;
+  margin:0 auto;
+  padding:82px 10px;
+  display:flex;
+  gap:90px;
+  align-items:flex-start;
+}
+.left{
+  width:470px;
+}
+.big-photo{
+  width:470px;
+  height:470px;
+  margin-left: 20px;
+  border-radius:18px;
+  overflow:hidden;
+  background:#f3f3f3;
+}
+.big-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.thumbs{
+  margin-top:18px;
+  display:flex;
+  gap:18px;
+  margin-left: 20px;
+}
+.thumb{
+  width:92px;
+  height:92px;
+  border-radius:14px;
+  overflow:hidden;
+  background:#f3f3f3;
+  cursor:pointer;
+  transition:0.15s;
+}
+.thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.thumb:hover{
+  transform: translateY(-2px);
+}
+.thumb.active{
+  outline:2px solid #ff8a1f;
+}
+.thumb.active img{
+  opacity:0.6;
+}
+.Description{
+  width:440px;
+  padding-top:60px;
+  padding-left: 40px;
+}
+.company{
+  color:#5e5e5e;
+  font-weight:700;
+  letter-spacing:4px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size:12px;
+}
+.title{
+  margin:0 0 18px 0;
+  font-size:41px;
+  text-align: left;
+  line-height:1.05;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.desc{
+  margin:0 0 26px 0;
+  color:#757575;
+  line-height:1.7;
+  font-size:15px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.priceRow{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.priceNow{
+  font-size:28px;
+  font-weight:800;
+}
+.badge{
+  background:#000000;
+  color:#ffffff;
+  padding:6px 10px;
+  border-radius:10px;
+  font-size:16px;
+  font-weight:bold;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+.priceOld{
+  margin-top:10px;
+  color:#636363;
+  text-decoration:line-through;
+  font-weight:700;
+  font-size:17px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.buyRow{
+  margin-top:28px;
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+.qty{
+  width:180px;
+  height:52px;
+  background:#f2f4f7;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 14px;
+}
+.qty button{
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  width:44px;
+  height:44px;
+  border-radius:10px;
+  font-size:28px;
+  font-weight:900;
+  color:#ff8a1f;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  line-height:1;
+}
+.qty button:hover{
+  background:#e9edf3;
+}
+.qty button img{
+  height:14px;
+  display:block;
+}
+.score{
+  font-size:16px;
+  font-weight:800;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.add{
+  width:260px;
+  height:52px;
+  border:none;
+  cursor:pointer;
+  border-radius:12px;
+  background:#ff8a1f;
+  color:#000000;
+  font-weight:800;
+  font-size:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  box-shadow: 0 10px 20px rgba(255,138,31,0.25);
+  transition:0.1s;
+}
+.add:hover{
+  background:#f57d0a;
+  transform: translateY(-1px);
+}
+.add:active{
+  transform: translateY(0px);
+}
+.cartBtn{
+  width:16px;
+  height:16px;
+}

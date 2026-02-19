@@ -1,0 +1,15 @@
+body{
+    background-color: bisque;
+}
+.MainContainer{
+    margin: 200px;
+    background-color: brown;
+    padding: 20px;
+    border: 2px solid #555;
+    width: 190px;
+    height: 350px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}

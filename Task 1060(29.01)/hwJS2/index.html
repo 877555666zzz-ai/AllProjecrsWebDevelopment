@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="Maincontainer">
+<div class="container">
+    <h1>Student Profile</h1>
+    <form id="profileForm">
+        <label>
+            Name:
+            <input type="text" id="nameInput">
+        </label>
+        <label>
+            Age:
+            <input type="number" id="ageInput">
+        </label>
+        <label>
+            Major:
+            <input type="text" id="majorInput">
+        </label>
+        <div class="radio-group">
+            <p>Gender:</p>
+            <label><input type="radio" name="gender" value="Male"> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
+        </div>
+        <label class="checkbox">
+            <input type="checkbox" id="studentCheck">
+            Currently a student
+        </label>
+        <button type="submit">Save Profile</button>
+    </form>
+    <div class="profile">
+        <h2>Profile Preview</h2>
+        <p>Name: <span id="nameText">-</span></p>
+        <p>Age: <span id="ageText">-</span></p>
+        <p>Major: <span id="majorText">-</span></p>
+        <p>Gender: <span id="genderText">-</span></p>
+        <p>Status: <span id="statusText">-</span></p>
+    </div>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

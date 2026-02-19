@@ -1,0 +1,28 @@
+body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+}
+.MainContainer{
+  background: #f2f2f2;
+  padding: 20px;
+  border: 2px solid #555;
+  width: 280px;
+}
+.btn{
+    width: 100%;
+    background-color: #1497ab;
+    color: white;
+    padding: 18px 0;
+    margin-bottom: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn:hover{
+    color: blueviolet;
+    transition: 1s;
+}
