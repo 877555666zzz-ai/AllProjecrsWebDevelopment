@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Study Planner Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>📚 Study Planner Pro</h1>
+    <button id="darkModeBtn">🌙 Dark Mode</button>
+</header>
+
+<main>
+    <section class="input-section">
+        <input type="text" id="taskInput" placeholder="Enter your study task..." maxlength="50">
+        <span id="charCount">0 / 50</span>
+        <button id="addBtn">Add Task</button>
+        <button id="clearAllBtn">Clear All</button>
+        <select id="sortSelect">
+            <option value="default">Sort By</option>
+            <option value="az">A → Z</option>
+            <option value="za">Z → A</option>
+        </select>
+    </section>
+
+    <section id="taskContainer" class="task-container">
+      
+</main>
+
+<footer>
+    <p>©️ 2026 Study Planner | Made by Adilet</p>
+</footer>
+
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <h3>Edit Task</h3>
+        <input type="text" id="editInput">
+        <button id="saveEditBtn">Save</button>
+        <button id="closeModalBtn">Cancel</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
