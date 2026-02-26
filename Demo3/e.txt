@@ -1,0 +1,11 @@
+create a students manager web application
+contain an intial data array with at least 20 students
+allow adding a new student (name + course)
+Dispay the list of students on the page
+allow deleting a student
+include search by name (real time filtering)
+use a render() function
+use filter() where appropriate
+Use localStorage with JSON.stringify() and JSON.parse()
+Update the UI without page reload
+Include proper and clean CSS design design is required

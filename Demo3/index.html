@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Students Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <h1>Web Application</h1>
+      <p class="sub">Students Manager — add,search,delete</p>
+    </header>
+
+    <section class="panel">
+      <div class="searchRow">
+        <input id="searchInput" class="inpt" type="text" placeholder="Search student by name..." />
+        <button id="clearSearchBtn" class="btn1 ghost" type="button">Clear</button>
+      </div>
+
+      <div class="addRow">
+        <select id="courseSelect" class="select">
+          <option value="" selected disabled>Select course</option>
+          <option value="1">Course 1</option>
+          <option value="2">Course 2</option>
+          <option value="3">Course 3</option>
+          <option value="4">Course 4</option>
+        </select>
+        <button id="addBtn" class="btn1" type="button">Add</button>
+      </div>
+
+      <div class="meta">
+        <div class="pill">Total: <span id="totalCount">0</span></div>
+        <div class="pill">Shown: <span id="shownCount">0</span></div>
+        <button id="resetBtn" class="btn1 danger" type="button">Reset Data</button>
+      </div>
+    </section>
+
+    <section class="listWrap">
+      <div id="list" class="list"></div>
+      <div id="empty" class="empty hidden">No students found.</div>
+    </section>
+
+    <footer class="footer">
+      <span>Made by Adilet</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
