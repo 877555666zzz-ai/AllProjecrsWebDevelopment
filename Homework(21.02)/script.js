@@ -18,6 +18,7 @@ function saveTasks() {
   localStorage.setItem("study_tasks", JSON.stringify(tasks));
 }
 
+
 function updateStats() {
   let done = 0;
 
@@ -26,7 +27,6 @@ function updateStats() {
       done++;
     }
   }
-
   totalCount.textContent = tasks.length;
   doneCount.textContent = done;
   leftCount.textContent = tasks.length - done;
@@ -38,9 +38,9 @@ function renderTasks() {
 
   let list = tasks.slice();
 
+
   if (searchValue.trim() !== "") {
     let filtered = [];
-
     for (let i = 0; i < list.length; i++) {
       if (list[i].text.toLowerCase().includes(searchValue.toLowerCase())) {
         filtered.push(list[i]);

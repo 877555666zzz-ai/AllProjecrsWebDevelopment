@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Age Calculator</title>
+
+  <style>
+    * { 
+      box-sizing: border-box; 
+    }
+    body{
+      margin: 0;
+      min-height: 100vh;
+      padding: 20px;
+      display: grid;
+      place-items: center;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color: #e5e7eb;
+      background:
+        radial-gradient(800px 500px at 15% 15%, rgba(139,92,246,.30), transparent 60%),
+        radial-gradient(800px 500px at 85% 20%, rgba(34,211,238,.22), transparent 55%),
+        linear-gradient(180deg, #070b16, #0b1220);
+    }
+    .card{
+      width: min(860px, 100%);
+      border-radius: 20px;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 18px 60px rgba(0,0,0,.38);
+    }
+    h2{
+      margin: 0 0 14px;
+      font-size: 30px;
+      letter-spacing: -0.02em;
+    }
+    .row{
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: end;
+    }
+    label{
+      display: grid;
+      gap: 8px;
+      font-size: 12px;
+      color: rgba(229,231,235,.75);
+    }
+    input{
+      width: 110px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.22);
+      color: #fff;
+      outline: none;
+      font-size: 16px;
+      transition: 0.18s ease;
+    }
+    input::placeholder{
+      color: rgba(229,231,235,.35);
+    }
+    input:focus{
+      border-color: rgba(139,92,246,.55);
+      box-shadow: 0 0 0 5px rgba(139,92,246,.18);
+      transform: translateY(-1px);
+    }
+    button{
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.18s ease;
+      user-select: none;
+    }
+    .primary{
+      color: #0b1220;
+      background: linear-gradient(135deg, #a78bfa, #22d3ee, #34d399);
+      border: none;
+      box-shadow: 0 14px 40px rgba(34,211,238,.16);
+    }
+    .primary:hover{
+      filter: brightness(1.03);
+      transform: translateY(-1px);
+    }
+    .primary:active{
+      transform: translateY(1px);
+    }
+    .ghost{
+      color: #e5e7eb;
+      background: rgba(255,255,255,.06);
+    }
+    .ghost:hover{
+      transform: translateY(-1px);
+    }
+    .ghost:active{
+      transform: translateY(1px);
+    }
+    .result{
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.22);
+      min-height: 72px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .pill{
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(135deg, rgba(139,92,246,.14), rgba(34,211,238,.10));
+    }
+    .num{
+      font-size: 28px;
+      font-weight: 900;
+      color: #c7d2fe;
+      letter-spacing: -0.02em;
+    }
+    .unit{
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(229,231,235,.80);
+    }
+    .muted{
+      color: rgba(229,231,235,.65);
+      font-size: 14px;
+    }
+    .error{
+      color: #fecaca;
+      font-size: 14px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h2>Age Calculator</h2>
+    <div class="row">
+      <label>
+        День
+        <input id="day" type="number" placeholder="DD" min="1" max="31" />
+      </label>
+      <label>
+        Месяц
+        <input id="month" type="number" placeholder="MM" min="1" max="12" />
+      </label>
+      <label>
+        Год
+        <input id="year" type="number" placeholder="YYYY" min="1900" max="2100" />
+      </label>
+      <button class="primary" id="btn">Рассчитать</button>
+      <button class="ghost" id="clear" type="button">Очистить</button>
+    </div>
+
+    <div class="result" id="out">
+      <span class="muted">Введите дату и нажмите “Рассчитать”</span>
+    </div>
+  </div>
+
+  <script>
+    const dayEl = document.getElementById("day");
+    const monthEl = document.getElementById("month");
+    const yearEl = document.getElementById("year");
+    const out = document.getElementById("out");
+    const btn = document.getElementById("btn");
+    const clear = document.getElementById("clear");
+
+    function validDate(y, m0, d) {
+      const t = new Date(y, m0, d);
+      return t.getFullYear() === y && t.getMonth() === m0 && t.getDate() === d;
+    }
+
+    function calc() {
+      const d = Number(dayEl.value);
+      const m = Number(monthEl.value);
+      const y = Number(yearEl.value);
+
+      if (!d || !m || !y) {
+        out.innerHTML = `<span class="error">Введите корректную дату</span>`;
+        return;
+      }
+
+      const m0 = m - 1;
+
+      if (!validDate(y, m0, d)) {
+        out.innerHTML = `<span class="error">Дата неверная</span>`;
+        return;
+      }
+
+      const birth = new Date(y, m0, d);
+      const today = new Date();
+      const t0 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+      if (birth > t0) {
+        out.innerHTML = `<span class="error">Дата в будущем</span>`;
+        return;
+      }
+
+      let years = t0.getFullYear() - birth.getFullYear();
+      let months = t0.getMonth() - birth.getMonth();
+      let days = t0.getDate() - birth.getDate();
+
+      if (days < 0) {
+        months--;
+        days += new Date(t0.getFullYear(), t0.getMonth(), 0).getDate();
+      }
+
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      out.innerHTML = `
+        <div class="pill"><span class="num">${years}</span><span class="unit">лет</span></div>
+        <div class="pill"><span class="num">${months}</span><span class="unit">мес</span></div>
+        <div class="pill"><span class="num">${days}</span><span class="unit">дней</span></div>
+      `;
+    }
+
+    btn.addEventListener("click", calc);
+
+    clear.addEventListener("click", () => {
+      dayEl.value = "";
+      monthEl.value = "";
+      yearEl.value = "";
+      out.innerHTML = `<span class="muted">Введите дату и нажмите “Рассчитать”</span>`;
+      dayEl.focus();
+    });
+
+    [dayEl, monthEl, yearEl].forEach(el => {
+      el.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") calc();
+      });
+    });
+  </script>
+</body>
+</html>

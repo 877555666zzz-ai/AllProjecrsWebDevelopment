@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+  <link rel="stylesheet" href="js.css">
+</head>
+<body>
+
+
+  <!--<h2 id="title">Hello</h2>
+  <button id="btn">Change Text</button>
+  <script>
+    const title = document.querySelector("#title");
+    const btn = document.querySelector("#btn");
+    btn.addEventListener("click", function() {
+      title.innerHTML = "Welcome students!";
+    });
+  </script>
+</body>
+</html>-->
+
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+  <title>Array render</title>
+</head>
+<body>
+
+  <h2>Students List</h2>
+  <ul id="list"></ul>
+
+  <script>
+    const students = ["Ali", "Dana", "Aruzhan"];
+
+    const list = document.querySelector("#list");
+
+    students.forEach(function(name) {
+      list.innerHTML += `<li>${name}</li>`;
+    });
+  </script>
+
+</body>
+</html>-->
+
+<!--<h2>Students</h2>
+<ul id="list"></ul>
+<script>
+  const students = [
+    { name: "Ali", course: 1 },
+    { name: "Dana", course: 2 },
+    { name: "Aruzhan", course: 1 }
+  ];
+
+  const list = document.querySelector("#list");
+
+  students.forEach(function(student) {
+    list.innerHTML += `
+      <li>
+        ${student.name} - Course: ${student.course}
+      </li>
+    `;
+  });
+</script>-->
+
+
+
+<!--<h2>Students</h2>
+<button id="btn">Show only 1 course</button>
+<ul id="list"></ul>
+
+<script>
+  const students = [
+    { name: "Ali", course: 1 },
+    { name: "Dana", course: 2 },
+    { name: "Aruzhan", course: 1 }
+  ];
+
+  const list = document.querySelector("#list");
+  const btn = document.querySelector("#btn");
+
+  function render(arr) {
+    list.innerHTML = ""; // Очистка списка перед отрисовкой
+
+    arr.forEach(function(student) {
+      list.innerHTML += `
+        <li>
+          ${student.name} - Course: ${student.course}
+        </li>
+      `;
+    });
+  }
+
+  render(students); // Начальный рендеринг всех студентов
+
+  btn.addEventListener("click", function() {
+    const filtered = students.filter(function(student) {
+      return student.course === 1;
+    });
+
+    render(filtered); // Рендеринг отфильтрованного списка
+  });
+</script>-->
+
+
+
+<!--<h2>Numbers</h2>
+<button id="btn">Show Even</button>
+<ul id="list"></ul>
+
+<script>
+  const numbers = [1, 2, 3, 4, 5, 6];
+
+  const list = document.querySelector("#list");
+  const btn = document.querySelector("#btn");
+
+  function render(arr) {
+    list.innerHTML = "";
+
+    arr.forEach(function(num) {
+      list.innerHTML += `<li>${num}</li>`;
+    });
+  }
+
+  render(numbers);
+
+  btn.addEventListener("click", function() {
+    const even = numbers.filter(function(num) {
+      return num % 2 === 0;
+    });
+
+    render(even);
+  });
+</script>-->
+
+
+
+<!--<h2>Products</h2>
+<button id="btn">Price < 500</button>
+<ul id="list"></ul>
+
+<script>
+  const products = [
+    { name: "Phone", price: 300 },
+    { name: "Laptop", price: 1000 },
+    { name: "Tablet", price: 450 }
+  ];
+
+  const list = document.querySelector("#list");
+  const btn = document.querySelector("#btn");
+
+  function render(arr) {
+    list.innerHTML = "";
+    arr.forEach(function(product) {
+      list.innerHTML += `<li>${product.name} - ${product.price}$</li>`;
+    });
+  }
+
+  render(products);
+
+  btn.addEventListener("click", function() {
+    const cheap = products.filter(function(product) {
+      return product.price < 500;
+    });
+    render(cheap);
+  });
+</script>-->
+
+
+<!--<script>
+  const students = ["Ali", "Dana", "Aruzhan", "Nursultan"];
+
+  const list = document.querySelector("#list");
+  const search = document.querySelector("#search");
+
+  function render(arr) {
+    list.innerHTML = "";
+
+    arr.forEach(function(name) {
+      list.innerHTML += `<li>${name}</li>`;
+    });
+  }
+
+  render(students);
+
+  search.addEventListener("input", function() {
+    const value = search.value.toLowerCase();
+
+    const filtered = students.filter(function(name) {
+      return name.toLowerCase().includes(value);
+    });
+
+    render(filtered);
+  });
+</script>-->
+
+
+<!--<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  .row { display: flex; gap: 10px; margin-bottom: 12px; }
+  button { padding: 8px 12px; cursor: pointer; }
+  ul { padding-left: 18px; }
+  li { margin: 6px 0; }
+</style>-->
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Students App</title>
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Arial', sans-serif;
+  background: rgb(10, 10, 20);
+  color: rgb(240, 240, 240);
+  padding: 20px;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: rgb(255, 50, 200);
+  text-shadow: 0 0 10px rgb(255, 50, 200);
+
+
+
+
+  }
+.row {
+
+
+
+display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+.row input, .row select, .row button {
+
+padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.row input, .row select {
+  background: rgb(20, 20, 40);
+  color: rgb(240, 240, 240);
+}
+.row input::placeholder {
+  color: rgb(180, 180, 180);
+}
+.row button {
+  background: rgb(255, 50, 200);
+  color: rgb(10, 10, 20);
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.row button:hover {
+  background: rgb(255, 100, 220);
+}
+#list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); 
+  gap: 15px;
+}
+#list li {
+  background: linear-gradient(135deg, rgb(50, 0, 100), rgb(120, 0, 200));
+  border: 2px solid rgb(255, 50, 200);
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+#list li:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgb(255, 50, 200);
+  border-color: rgb(255, 100, 220);
+}
+#list li strong {
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 5px rgb(255, 100, 220);
+}
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  color: rgb(10, 10, 20);
+  background: linear-gradient(90deg, rgb(255, 50, 200), rgb(255, 150, 250));
+  text-shadow: 0 0 3px rgb(255, 50, 200);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Students App</h2>
+
+<div class="row">
+  <input id="search" placeholder="Search">
+
+  <select id="course">
+    <option value="all">All courses</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+
+  <select id="age">
+    <option value="all">All ages</option>
+    <option>16</option><option>17</option>
+    <option>18</option><option>19</option>
+  </select>
+
+  <select id="city">
+    <option value="all">All cities</option>
+    <option>Taraz</option><option>Almaty</option>
+    <option>Shymkent</option><option>Astana</option>
+    <option>Aktobe</option><option>Karaganda</option>
+    <option>Pavlodar</option><option>Semey</option>
+    <option>Oral</option><option>Atyrau</option>
+  </select>
+
+  <select id="sort">
+    <option value="none">No sort</option>
+    <option value="az">Surname A → Z</option>
+    <option value="za">Surname Z → A</option>
+  </select>
+
+  <button id="reset">Reset</button>
+</div>
+
+<ul id="list"></ul>
+
+<script>
+const students = [
+  { name: "Ayan", surname: "Nurlanov", course: 1, age: 16, city: "Taraz" },
+  { name: "Dana", surname: "Serikova", course: 2, age: 18, city: "Almaty" },
+  { name: "Aruzhan", surname: "Kaliyeva", course: 1, age: 17, city: "Shymkent" },
+  { name: "Nursultan", surname: "Bekov", course: 3, age: 19, city: "Astana" },
+  { name: "Madi", surname: "Tulegenov", course: 2, age: 18, city: "Aktobe" },
+  { name: "Aigerim", surname: "Omarova", course: 1, age: 16, city: "Karaganda" },
+  { name: "Zhandos", surname: "Toktarov", course: 1, age: 17, city: "Kostanay" },
+  { name: "Asyl", surname: "Mukhanov", course: 3, age: 19, city: "Pavlodar" },
+  { name: "Zeynep", surname: "Akylova", course: 2, age: 18, city: "Semey" },
+  { name: "Malik", surname: "Dauletov", course: 2, age: 17, city: "Oral" },
+  { name: "Gulnaz", surname: "Erbolova", course: 3, age: 19, city: "Atyrau" },
+  { name: "Yerbol", surname: "Nazarov", course: 1, age: 16, city: "Kokshetau" },
+  { name: "Balym", surname: "Kenesova", course: 2, age: 18, city: "Turkistan" },
+  { name: "Nurbergen", surname: "Amanov", course: 1, age: 17, city: "Taldykorgan" },
+  { name: "Talgat", surname: "Zhumabayev", course: 3, age: 19, city: "Zhezkazgan" },
+  { name: "Madina", surname: "Rysbekova", course: 2, age: 18, city: "Ekibastuz" },
+  { name: "Dias", surname: "Zhanov", course: 1, age: 16, city: "Taraz" },
+  { name: "Arman", surname: "Kuatov", course: 3, age: 19, city: "Astana" },
+  { name: "Aliya", surname: "Saparova", course: 2, age: 18, city: "Almaty" },
+  { name: "Bekzat", surname: "Kaliyev", course: 1, age: 17, city: "Shymkent" },
+  { name: "Nurdaulet", surname: "Tursynov", course: 2, age: 18, city: "Aktau" },
+  { name: "Gulzira", surname: "Muratova", course: 3, age: 19, city: "Karaganda" },
+  { name: "Adil", surname: "Zholdasov", course: 1, age: 16, city: "Pavlodar" },
+  { name: "Saniya", surname: "Bekmuratova", course: 2, age: 18, city: "Semey" },
+  { name: "Ruslan", surname: "Aitov", course: 3, age: 19, city: "Oral" },
+  { name: "Amina", surname: "Yessenova", course: 1, age: 16, city: "Atyrau" },
+  { name: "Daniyar", surname: "Kassenov", course: 2, age: 18, city: "Kokshetau" },
+  { name: "Saltanat", surname: "Ospanova", course: 1, age: 17, city: "Turkistan" },
+  { name: "Yerkebulan", surname: "Serikov", course: 3, age: 19, city: "Taldykorgan" },
+  { name: "Kamila", surname: "Zhumayeva", course: 2, age: 18, city: "Taraz" },
+  { name: "Batyr", surname: "Nurmukhambetov", course: 1, age: 16, city: "Astana" },
+  { name: "Gulnur", surname: "Iskakova", course: 3, age: 19, city: "Almaty" },
+  { name: "Temirlan", surname: "Abdullayev", course: 2, age: 18, city: "Shymkent" },
+  { name: "Zhanel", surname: "Kudaybergenova", course: 1, age: 17, city: "Aktobe" },
+  { name: "Askhat", surname: "Zhaksylykov", course: 3, age: 19, city: "Karaganda" },
+  { name: "Nazym", surname: "Rakhmetova", course: 2, age: 18, city: "Pavlodar" },
+  { name: "Erkhan", surname: "Baitasov", course: 1, age: 16, city: "Semey" },
+  { name: "Moldir", surname: "Tulepova", course: 2, age: 18, city: "Oral" },
+  { name: "Serik", surname: "Zhumagulov", course: 3, age: 19, city: "Atyrau" },
+  { name: "Aisulu", surname: "Khamitova", course: 1, age: 17, city: "Kokshetau" },
+  { name: "Dastan", surname: "Nurpeisov", course: 2, age: 18, city: "Turkistan" },
+  { name: "Altynai", surname: "Mukanova", course: 3, age: 19, city: "Taldykorgan" },
+  { name: "Yernar", surname: "Sultanov", course: 1, age: 16, city: "Taraz" },
+  { name: "Zhibek", surname: "Sadykova", course: 2, age: 18, city: "Astana" },
+  { name: "Kairat", surname: "Bekzhanov", course: 3, age: 19, city: "Almaty" },
+  { name: "Aknur", surname: "Yesimova", course: 1, age: 17, city: "Shymkent" },
+  { name: "Bauyrzhan", surname: "Tulegenov", course: 2, age: 18, city: "Aktobe" },
+  { name: "Raushan", surname: "Kenesova", course: 1, age: 16, city: "Karaganda" },
+  { name: "Marat", surname: "Aitbayev", course: 3, age: 19, city: "Pavlodar" },
+  { name: "Indira", surname: "Ryskulova", course: 2, age: 18, city: "Semey" }
+];
+const list=document.querySelector("#list");
+const search=document.querySelector("#search");
+const course=document.querySelector("#course");
+const age=document.querySelector("#age");
+const city=document.querySelector("#city");
+const sort=document.querySelector("#sort");
+const reset=document.querySelector("#reset");
+
+function render(arr){
+list.innerHTML="";
+arr.forEach(s=>{
+list.innerHTML+=`<li>
+<strong>${s.name} ${s.surname}</strong>
+<span class="badge">${s.city}</span>
+<span class="badge">${s.course} course</span>
+<span class="badge">${s.age}</span>
+</li>`;
+});
+}
+
+function apply(){
+let res=[...students];
+const txt=search.value.toLowerCase();
+
+res=res.filter(s=>
+s.name.toLowerCase().includes(txt)||
+s.surname.toLowerCase().includes(txt)||
+s.city.toLowerCase().includes(txt)
+);
+
+if(course.value!="all") res=res.filter(s=>s.course==course.value);
+if(age.value!="all") res=res.filter(s=>s.age==age.value);
+if(city.value!="all") res=res.filter(s=>s.city==city.value);
+
+if(sort.value=="az") res.sort((a,b)=>a.name.localeCompare(b.name));
+if(sort.value=="za") res.sort((a,b)=>b.name.localeCompare(a.name));
+
+render(res);
+}
+
+search.oninput=apply;
+course.onchange=apply;
+age.onchange=apply;
+city.onchange=apply;
+sort.onchange=apply;
+
+reset.onclick=()=>{
+search.value="";
+course.value="all";
+age.value="all";
+city.value="all";
+sort.value="none";
+render(students);
+};
+
+render(students);
+
+</script>
+
+</body>
+</html>-->
+
+
+
+
+<!--<h2>Students</h2>
+
+<input id="nameInput" placeholder="Name">
+<button id="addBtn">Add</button>
+
+<ul id="list"></ul>
+
+<script>
+let students = [];
+
+const list = document.querySelector("#list");
+const nameInput = document.querySelector("#nameInput");
+const addBtn = document.querySelector("#addBtn");
+
+function render() {
+  list.innerHTML = "";
+
+  students.forEach(function(name, index) {
+    list.innerHTML += `
+      <li>
+        ${name}
+        <button onclick="deleteStudent(${index})">Delete</button>
+      </li>
+    `;
+  });
+}
+
+function deleteStudent(index) {
+  students.splice(index, 1);
+  render();
+}
+
+addBtn.addEventListener("click", function() {
+  const value = nameInput.value.trim();
+  if (!value) return;
+
+  students.push(value);
+  nameInput.value = "";
+  render();
+});
+</script>-->
+
+
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Students + localStorage</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input { padding: 8px; }
+    button { padding: 8px 12px; cursor: pointer; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+
+<h2>Students</h2>
+
+<input id="input" placeholder="Enter name">
+<button id="addBtn">Add</button>
+
+<ul id="list"></ul>
+<script>
+let names = [];
+
+const input = document.querySelector("#input");
+const addBtn = document.querySelector("#addBtn");
+const list = document.querySelector("#list");
+
+function render() {
+  list.innerHTML = "";
+
+  names.forEach(function(name) {
+    list.innerHTML += `<li>${name}</li>`;
+  });
+}
+
+function saveToStorage() {
+  localStorage.setItem("names", JSON.stringify(names));
+}
+
+addBtn.addEventListener("click", function() {
+  const value = input.value.trim();
+  if (!value) return;
+
+  names.push(value);  
+  saveToStorage();     
+  render();           
+
+  input.value = "";
+});
+</script>
+
+</body>
+</html>-->
+
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Students + Enter + localStorage</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input { padding: 8px; }
+    button { padding: 8px 12px; cursor: pointer; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+
+  <h2>Students</h2>
+
+  <input id="input" placeholder="Enter name">
+  <button id="addBtn">Add</button>
+
+  <ul id="list"></ul>
+
+  <script>
+    // JavaScript код начинается здесь
+    let names = [];
+
+const input = document.querySelector("#input");
+const addBtn = document.querySelector("#addBtn");
+const list = document.querySelector("#list");
+
+function render() {
+  list.innerHTML = "";
+
+  names.forEach(function(name) {
+    list.innerHTML += `<li>${name}</li>`;
+  });
+}
+
+function saveToStorage() {
+  localStorage.setItem("names", JSON.stringify(names));
+}
+
+function addName() {
+  const value = input.value.trim();
+  if (!value) return;
+
+  names.push(value);
+  saveToStorage();
+  render();
+
+  input.value = "";
+}
+
+addBtn.addEventListener("click", addName);
+
+input.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    addName();
+  }
+});
+
+if (localStorage.getItem("names")) {
+  names = JSON.parse(localStorage.getItem("names"));
+}
+
+render();
+</script>
+</body>
+</html>-->
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Students + Enter + localStorage</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input { padding: 8px; }
+    button { padding: 6px 10px; cursor: pointer; margin-left: 5px; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+
+  <h2>Students</h2>
+
+  <input id="input" placeholder="Enter name">
+  <button id="addBtn">Add</button>
+
+  <ul id="list"></ul>
+
+  <script>
+   let names = [];
+
+const input = document.querySelector("#input");
+const addBtn = document.querySelector("#addBtn");
+const list = document.querySelector("#list");
+
+function render() {
+  list.innerHTML = "";
+
+  names.forEach(function(name, index) {
+    const li = document.createElement("li");
+    li.textContent = name;
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+
+    deleteBtn.addEventListener("click", function() {
+      deleteName(index);
+    });
+
+    li.appendChild(deleteBtn);
+    list.appendChild(li);
+  });
+}
+
+function saveToStorage() {
+  localStorage.setItem("names", JSON.stringify(names));
+}
+
+function addName() {
+  const value = input.value.trim();
+  if (!value) return;
+
+  names.push(value);
+  saveToStorage();
+  render();
+
+  input.value = "";
+}
+
+function deleteName(index) {
+  names.splice(index, 1);
+  saveToStorage();
+  render();
+}
+
+addBtn.addEventListener("click", addName);
+
+input.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    addName();
+  }
+});
+
+if (localStorage.getItem("names")) {
+  names = JSON.parse(localStorage.getItem("names"));
+}
+
+render();
+</script>
+</body>
+</html>-->
+
+
+
+<!--DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Students</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: radial-gradient(circle at top, rgb(20,30,70), rgb(5,5,20));
+  padding: 40px;
+  color: rgb(230,230,255);
+}
+h2 {
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 15px rgb(255,200,50);
+}
+.row {
+  background: rgba(20,40,120,0.6);
+  border: 1px solid rgb(255,200,80);
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgb(120,160,255);
+  background: rgb(10,20,60);
+  color: white;
+}
+button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(rgb(255,210,80), rgb(255,140,0));
+  font-weight: bold;
+  cursor: pointer;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 450px;
+  margin: auto;
+}
+li {
+  background: rgba(20,40,120,0.7);
+  border-left: 4px solid rgb(255,200,80);
+  padding: 14px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+li button {
+  background: rgb(220,60,60);
+  color: white;
+  padding: 6px 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Students</h2>
+
+<div class="row">
+  <input id="nameInput" placeholder="Name">
+  <input id="ageInput" type="number" placeholder="Age">
+  <button id="addBtn">Add</button>
+</div>
+
+<div class="row">
+  <input id="searchInput" placeholder=" Search by name">
+</div>
+
+<ul id="list"></ul>
+
+<script>
+let students = [];
+
+const nameInput = document.querySelector("#nameInput");
+const ageInput = document.querySelector("#ageInput");
+const addBtn = document.querySelector("#addBtn");
+const list = document.querySelector("#list");
+const searchInput = document.querySelector("#searchInput");
+
+function save() {
+  localStorage.setItem("students", JSON.stringify(students));
+}
+
+function load() {
+  const data = localStorage.getItem("students");
+  if (data) students = JSON.parse(data);
+}
+
+function render() {
+  list.innerHTML = "";
+
+  const search = searchInput.value.toLowerCase();
+
+  students
+    .filter(s => s.name.toLowerCase().includes(search))
+    .forEach((student, index) => {
+      const li = document.createElement("li");
+      li.textContent = `${student.name} — ${student.age}`;
+
+      const btn = document.createElement("button");
+      btn.textContent = "Delete" ;
+
+      btn.onclick = () => {
+        students.splice(index, 1);
+        save();
+        render();
+      };
+
+      li.appendChild(btn);
+      list.appendChild(li);
+    });
+}
+
+function addStudent() {
+  const name = nameInput.value.trim();
+  const age = Number(ageInput.value);
+
+  if (!name || !age) return;
+
+  students.push({ name, age });
+  save();
+  render();
+
+  nameInput.value = "";
+  ageInput.value = "";
+}
+
+addBtn.onclick = addStudent;
+searchInput.oninput = render;
+
+load();
+render();
+</script>
+
+</body>
+</html>-->
+
+
+
+
+
+
+<!--JSON-->
+
+<!--<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON Task 1</title>
+    <style>
+        body {
+            font-family: system-ui;
+            margin: 0; background: #0f172a;
+            color: #e5e7eb;
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            padding: 16px;
+        }
+        .card {
+            max-width: 720px;
+            width: 100%;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 16px; padding: 16px;
+        }
+        button {
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            background: #1f2937;
+            color: #fff; cursor: pointer;
+        }
+        pre {
+            background: rgba(0, 0, 0, .35);
+            padding: 12px;
+            border-radius: 12px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Задача 1: JSON.parse()</h2>
+        <p>Нажми кнопку — распарсим JSON-строку и выведем <b>name</b>.</p>
+        <button id="btn">Показать</button>
+        <pre id="out"></pre>
+    </div>
+
+    <script>
+        const jsonString = '{"name":"Ali","age":20}';
+
+        document.getElementById("btn").addEventListener("click", () => {
+            const obj = JSON.parse(jsonString);
+            document.getElementById("out").textContent = `Имя: ${obj.name}`;
+        });
+    </script>
+</body>
+</html>-->
+
+
+<!--DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON Task 2</title>
+    <style>
+        body {
+            font-family: system-ui;
+            margin: 0;
+            background: #0b1220;
+            color: #e5e7eb;
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            padding: 16px;
+        }
+        .card {
+            max-width: 720px;
+            width: 100%;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 16px;
+            padding: 16px;
+        }
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            margin-right: 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            background: rgba(0, 0, 0, .25);
+            color: #fff;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            background: #1f2937;
+            color: #fff;
+            cursor: pointer;
+        }
+        pre {
+            background: rgba(0, 0, 0, .35);
+            padding: 12px;
+            border-radius: 12px;
+            overflow: auto;
+        }
+        .row {
+            display: grid;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Задача 2: JSON.stringify()</h2>
+        <div class="row">
+            <label>Имя <input id="name" placeholder="Dias"></label>
+            <label>Возраст <input id="age" type="number" placeholder="17"></label>
+            <button id="btn">Сформировать JSON</button>
+        </div>
+        <pre id="out"></pre>
+    </div>
+
+    <script>
+        document.getElementById("btn").addEventListener("click", () => {
+            const name = document.getElementById("name").value;
+            const age = document.getElementById("age").value;
+
+            const userObject = {
+                name: name,
+                age: Number(age)
+            };
+
+            const jsonOutput = JSON.stringify(userObject, null, 2);
+            document.getElementById("out").textContent = jsonOutput;
+        });
+    </script>
+</body>
+</html>-->
+
+
+
+<!--<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON Task 3</title>
+    <style>
+        body {
+            font-family: system-ui;
+            margin: 0;
+            background: #0f172a;
+            color: #e5e7eb;
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            padding: 16px;
+        }
+        .card {
+            max-width: 720px;
+            width: 100%;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 16px;
+            padding: 16px;
+        }
+        ul {
+            margin: 10px 0 0;
+            padding-left: 18px;
+        }
+        code {
+            background: rgba(0, 0, 0, .3);
+            padding: 2px 6px;
+            border-radius: 8px;
+        }
+        button {
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            background: #1f2937;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Задача 3: Массив в JSON</h2>
+        <p>Распарсим JSON и выведем <code>skills</code> списком.</p>
+        <button id="btn">Показать</button>
+        <ul id="list"></ul>
+    </div>
+
+    <script>
+        const json = '{"name":"Dana","skills":["HTML","CSS","JS","JSON"]}';
+
+        document.getElementById("btn").addEventListener("click", () => {
+            const data = JSON.parse(json);
+            const ul = document.getElementById("list");
+            ul.innerHTML = ""; // Очищаем список перед добавлением
+
+            // Перебор массива навыков и создание элементов списка
+            data.skills.forEach(skill => {
+                const li = document.createElement("li");
+                li.textContent = skill;
+                ul.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>-->
+
+
+<!--<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON Task 4</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            background: #0b1220;
+            color: #e5e7eb;
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            padding: 16px;
+        }
+        .card {
+            max-width: 720px;
+            width: 100%;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 16px;
+            padding: 16px;
+        }
+        .box {
+            background: rgba(0, 0, 0, .35);
+            padding: 12px;
+            border-radius: 12px;
+        }
+        button {
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            background: #1f2937;
+            color: #fff;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Задача 4: Вложенный объект</h2>
+        <p>Достань <b>город</b> и <b>страну</b> из <code>address</code>.</p>
+        <button id="btn">Показать</button>
+        <div class="box" id="out">...</div>
+    </div>
+
+    <script>
+        const json = `{
+            "name": "Aruzhan",
+            "address": {"city": "Taraz", "country": "Kazakhstan"}
+        }`;
+
+        document.getElementById("btn").addEventListener("click", () => {
+            const obj = JSON.parse(json);
+            // Деструктуризация объекта address
+            const { city, country } = obj.address;
+            
+            document.getElementById("out").textContent = `Город: ${city} | Страна: ${country}`;
+        });
+    </script>
+</body>
+</html>-->
+
+
+<!--<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON Task 5</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            background: #0f172a;
+            color: #e5e7eb;
+            min-height: 100vh;
+            padding: 16px;
+        }
+        .wrap {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+        .card {
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 16px;
+            padding: 14px;
+        }
+        .muted {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+        button {
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            background: #1f2937;
+            color: #fff;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h2>Задача 5: Массив объектов</h2>
+        <button id="btn">Показать пользователей</button>
+        <div class="grid" id="grid"></div>
+    </div>
+
+    <script>
+        const usersJson = `[
+            {"name":"Ali", "email":"ali@mail.com", "age":20},
+            {"name":"Dana", "email":"dana@mail.com", "age":22},
+            {"name":"Sanat", "email":"sanat@mail.com", "age":19}
+        ]`;
+
+        document.getElementById("btn").addEventListener("click", () => {
+            const users = JSON.parse(usersJson);
+            const grid = document.getElementById("grid");
+            grid.innerHTML = "";
+
+            users.forEach(u => {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.innerHTML = `
+                    <h3>${u.name}</h3>
+                    <div class="muted">${u.email}</div>
+                    <div>Age: <b>${u.age}</b></div>
+                `;
+                grid.appendChild(card);
+            });
+        });
+    </script>
+</body>
+</html>-->
+
+
+<!--doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON Task 6</title>
+    <style>
+        body {
+            font-family: system-ui;
+            margin: 0; background: #0b1220; color: #e5e7eb;
+            display: grid; place-items: center;
+            min-height: 100vh; padding: 16px;
+        }
+        .card {
+            max-width: 900px; width: 100%;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 16px; padding: 16px;
+        }
+        input {
+            padding: 10px 12px; border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            background: rgba(0, 0, 0, .25); color: #fff;
+            width: 120px;
+        }
+        button {
+            padding: 10px 14px; border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            background: #1f2937; color: #fff; cursor: pointer;
+        }
+        .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+        .list { margin-top: 12px; display: grid; gap: 8px; }
+        .item {
+            padding: 10px; border-radius: 12px;
+            background: rgba(0, 0, 0, .28);
+            border: 1px solid rgba(255, 255, 255, .10);
+        }
+        .muted { color: #9ca3af; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Задача 6: filter()</h2>
+    <div class="row">
+        <label>
+            Возраст больше:
+            <input id="minAge" type="number" value="20">
+        </label>
+        <button id="btn">Фильтровать</button>
+    </div>
+    <div class="list" id="out"></div>
+</div>
+
+<script>
+    const data = [
+        { name: "Ali", age: 20, city: "Taraz" },
+        { name: "Dana", age: 22, city: "Almaty" },
+        { name: "Samat", age: 19, city: "Shymkent" },
+        { name: "Amina", age: 25, city: "Astana" }
+    ];
+
+    const button = document.getElementById("btn");
+    const input = document.getElementById("minAge");
+    const output = document.getElementById("out");
+
+    button.addEventListener("click", () => {
+        const minAge = Number(input.value);
+
+        const filtered = data.filter(user => user.age > minAge);
+
+        output.innerHTML = "";
+
+        if (filtered.length === 0) {
+            output.innerHTML = `<div class="item">Никого нет</div>`;
+            return;
+        }
+
+        filtered.forEach(user => {
+            const div = document.createElement("div");
+            div.className = "item";
+            div.innerHTML = `
+                <b>${user.name}</b> — ${user.age}
+                <span class="muted">(${user.city})</span>
+            `;
+            output.appendChild(div);
+        });
+    });
+</script>
+
+</body>
+</html>-->
+
+
+<!--doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>JSON Task 7</title>
+    <style>
+        body{font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;margin:0;background:#0f172a;color:#e5e7eb;display:grid;place-items:center;min-height:100vh;padding:16px}
+        .card{max-width:720px;width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px}
+        input{width:100%;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.25);color:#fff}
+        button{margin-top:10px;padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:#1f2937;color:#fff;cursor:pointer}
+        .box{margin-top:12px;padding:12px;border-radius:12px;background:rgba(0,0,0,.35)}
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Задача 7: find()</h2>
+        <p>Введите имя (например: <b>Dana</b>)</p>
+        <input id="q" placeholder="Имя...">
+        <button id="btn">Найти</button>
+        <div class="box" id="out">...</div>
+    </div>
+
+    <script>
+        const users = [
+            { name: "Ali", age: 20, email: "ali@mail.com" },
+            { name: "Dana", age: 22, email: "dana@mail.com" },
+            { name: "Amina", age: 25, email: "amina@mail.com" }
+        ];
+
+        document.getElementById("btn").addEventListener("click", () => {
+            const q = document.getElementById("q").value.trim().toLowerCase();
+            const user = users.find(u => u.name.toLowerCase() === q);
+
+            document.getElementById("out").textContent = user ? `${user.name} | age: ${user.age} | ${user.email}` : "Не найдено";
+        });
+    </script>
+</body>
+</html>-->
+
+
+<!--doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>JSON Task 7</title>
+    <style>
+        body{font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;margin:0;background:#0f172a;color:#e5e7eb;display:grid;place-items:center;min-height:100vh;padding:16px}
+        .card{max-width:720px;width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px}
+        input{width:100%;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.25);color:#fff}
+        button{margin-top:10px;padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:#1f2937;color:#fff;cursor:pointer}
+        .box{margin-top:12px;padding:12px;border-radius:12px;background:rgba(0,0,0,.35)}
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Задача 7: find()</h2>
+        <p>Введите имя (например: <b>Dana</b>)</p>
+        <input id="q" placeholder="Имя...">
+        <button id="btn">Найти</button>
+        <div class="box" id="out">...</div>
+    </div>
+
+    <script>
+        const users = [
+            { name: "Ali", age: 20, email: "ali@mail.com" },
+            { name: "Dana", age: 22, email: "dana@mail.com" },
+            { name: "Amina", age: 25, email: "amina@mail.com" }
+        ];
+
+        document.getElementById("btn").addEventListener("click", () => {
+            const q = document.getElementById("q").value.trim().toLowerCase();
+            const user = users.find(u => u.name.toLowerCase() === q);
+
+            document.getElementById("out").textContent = user ? `${user.name} | age: ${user.age} | ${user.email}` : "Не найдено";
+        });
+    </script>
+</body>
+</html>-->
+
+
+
+<!--DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+        margin: 0;
+        font-family: 'Courier New', Courier, monospace;
+        background: #010715;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .card {
+        background: #1e293b;
+        padding: 30px;
+        border-radius: 12px;
+        text-align: center;
+        width: 350px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        background: #3b82f6;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #2563eb;
+    }
+
+    p {
+        margin-top: 15px;
+        font-size: 14px;
+        opacity: 0.7;
+    }
+</style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Простой Fetch</h2>
+        <button id="loadBtn">Загрузить пользователей</button>
+        <p>Открой консоль (F12)</p>
+    </div>
+
+    <script>
+        const button = document.getElementById("loadBtn");
+
+        button.addEventListener("click", () => {
+
+            fetch("https://jsonplaceholder.typicode.com/users")
+                .then(response => response.json())
+                .then(data => console.log(data));
+
+        });
+    </script>
+
+</body>
+</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <div>
+    <h1>hello guys </h1>
+  </div>
+    <script>
+// setTimeout(console.log("hello"), 1000);
+
+// setTimeout(() => console.log("hello"), 1000);
+
+const myPromise = new Promise((resolve, reject) => {
+  const success = true;
+
+  if (success) {
+    resolve("Успех!");
+  } else {
+    reject("Ошибка!");
+  }
+});
+    </script>
+</body>
+</html>
