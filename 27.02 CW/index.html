@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend Mentor | Job Listings</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'League Spartan', sans-serif;
+}
+
+body {
+  background: rgb(239, 250, 250);
+}
+
+.header {
+  height: 150px;
+  background: rgb(91, 164, 164);
+}
+
+.container {
+  max-width: 1000px;
+  padding: 0 20px;
+}
+
+.job-card {
+  background: rgb(255, 255, 255);
+  padding: 25px;
+  margin-top: 40px;
+  border-radius: 6px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin-left: 250px;
+}
+
+.featured {
+  border-left: 5px solid rgb(91, 164, 164);
+}
+
+.job-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.job-left img {
+  width: 60px;
+  height: 60px;
+}
+
+.company {
+  color: rgb(91, 164, 164);
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.badge {
+  background: rgb(91, 164, 164);
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  padding: 5px 8px;
+  border-radius: 20px;
+  margin-right: 5px;
+}
+
+.badge.dark {
+  background: rgb(44, 58, 58);
+}
+
+.position {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+.position:hover {
+  color: rgb(91, 164, 164);
+}
+
+.meta {
+  color: rgb(123, 142, 142);
+  font-size: 14px;
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: rgb(237, 247, 247);
+  color: rgb(91, 164, 164);
+  font-weight: 700;
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tag:hover {
+  background: rgb(91, 164, 164);
+  color: rgb(255, 255, 255);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.attribution a {
+  color: rgb(62, 82, 163);
+}
+.controls {
+  width: 100%;
+  background: rgb(255,255,255);
+  padding: 20px;
+  margin-top: -30px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.controls input,
+.controls select {
+  padding: 10px;
+  border: 1px solid rgb(200,200,200);
+  border-radius: 5px;
+  font-size: 14px;
+}
+  </style>
+</head>
+<body>
+ <div class="header"></div>
+
+ <div class="controls">
+  <input type="text" id="searchInput" placeholder="Поиск по названию...">
+
+  <select id="skillFilter">
+    <option value="">Все навыки</option>
+    <option value="Frontend">Frontend</option>
+    <option value="Backend">Backend</option>
+    <option value="Fullstack">Fullstack</option>
+    <option value="JavaScript">JavaScript</option>
+    <option value="React">React</option>
+    <option value="Python">Python</option>
+    <option value="Ruby">Ruby</option>
+    <option value="Sass">Sass</option>
+    <option value="Vue">Vue</option>
+  </select>
+
+  <select id="sortDate">
+    <option value="new">Сначала новые</option>
+    <option value="old">Сначала старые</option>
+  </select>
+</div>
+<div class="job-card featured">
+  <div class="job-left">
+    <img src="photosnap.svg" >
+    <div>
+      <div>
+        <span class="company">Photosnap</span>
+        <span class="badge">NEW!</span>
+        <span class="badge dark">FEATURED</span>
+      </div>
+      <div class="position">Senior Frontend Developer</div>
+      <div class="meta">1d ago • Full Time • USA only</div>
+    </div>
+  </div>
+  <div class="tags">
+    <div class="tag">Frontend</div>
+    <div class="tag">Senior</div>
+    <div class="tag">HTML</div>
+    <div class="tag">CSS</div>
+    <div class="tag">JavaScript</div>
+  </div>
+</div>
+<div class="job-card featured">
+  <div class="job-left">
+    <img src="manage.svg" alt="">
+    <div>
+      <div>
+        <span class="company">Manage</span>
+        <span class="badge">NEW!</span>
+        <span class="badge dark">FEATURED</span>
+      </div>
+      <div class="position">Fullstack Developer</div>
+      <div class="meta">1d ago • Part Time • Remote</div>
+    </div>
+  </div>
+  <div class="tags">
+    <div class="tag">Fullstack</div>
+    <div class="tag">Midweight</div>
+    <div class="tag">Python</div>
+    <div class="tag">React</div>
+  </div>
+</div>
+<div class="job-card">
+  <div class="job-left">
+    <img src="account.svg" alt="">
+    <div>
+      <div>
+        <span class="company">Account</span>
+        <span class="badge">NEW!</span>
+      </div>
+      <div class="position">Junior Frontend Developer</div>
+      <div class="meta">2d ago • Part Time • USA only</div>
+    </div>
+  </div>
+  <div class="tags">
+    <div class="tag">Frontend</div>
+    <div class="tag">Junior</div>
+    <div class="tag">JavaScript</div>
+    <div class="tag">React</div>
+    <div class="tag">Sass</div>
+  </div>
+</div>
+<div class="job-card">
+  <div class="job-left">
+    <img src="myhome.svg" alt="">
+    <div>
+      <div>
+        <span class="company">MyHome</span>
+      </div>
+      <div class="position">Junior Frontend Developer</div>
+      <div class="meta">5d ago • Contract • USA only</div>
+    </div>
+  </div>
+  <div class="tags">
+    <div class="tag">Frontend</div>
+    <div class="tag">Junior</div>
+    <div class="tag">CSS</div>
+    <div class="tag">JavaScript</div>
+  </div>
+</div>
+<div class="job-card">
+  <div class="job-left">
+    <img src="loop-studios.svg" alt="">
+    <div>
+      <div>
+        <span class="company">Loop Studios</span>
+      </div>
+      <div class="position">Software Engineer</div>
+      <div class="meta">1w ago • Full Time • Worldwide</div>
+    </div>
+  </div>
+  <div class="tags">
+    <div class="tag">Fullstack</div>
+    <div class="tag">Midweight</div>
+    <div class="tag">JavaScript</div>
+    <div class="tag">Ruby</div>
+    <div class="tag">Sass</div>
+  </div>
+</div>
+<div class="job-card">
+  <div class="job-left">
+    <img src="faceit.svg" alt="">
+    <div>
+      <div>
+        <span class="company">FaceIt</span>
+      </div>
+      <div class="position">Junior Backend Developer</div>
+      <div class="meta">2w ago • Full Time • UK only</div>
+    </div>
+  </div>
+  <div class="tags">
+    <div class="tag">Backend</div>
+    <div class="tag">Junior</div>
+    <div class="tag">Ruby</div>
+    <div class="tag">RoR</div>
+  </div>
+</div>
+<div class="job-card">
+  <div class="job-left">
+    <img src="shortly.svg" alt="">
+    <div>
+      <div>
+        <span class="company">Shortly</span>
+      </div>
+      <div class="position">Junior Developer</div>
+      <div class="meta">2w ago • Full Time • Worldwide</div>
+    </div>
+  </div>
+  <div class="tags">
+    <div class="tag">Frontend</div>
+    <div class="tag">Junior</div>
+    <div class="tag">HTML</div>
+    <div class="tag">JavaScript</div>
+    <div class="tag">Sass</div>
+  </div>
+</div>
+<div class="job-card">
+  <div class="job-left">
+    <img src="insure.svg" alt="">
+    <div>
+      <div>
+        <span class="company">Insure</span>
+      </div>
+      <div class="position">Junior Frontend Developer</div>
+      <div class="meta">2w ago • Full Time • USA only</div>
+    </div>
+  </div>
+  <div class="tags">
+    <div class="tag">Frontend</div>
+    <div class="tag">Junior</div>
+    <div class="tag">JavaScript</div>
+    <div class="tag">Vue</div>
+    <div class="tag">Sass</div>
+  </div>
+</div>
+<div class="job-card">
+  <div class="job-left">
+    <img src="eyecam-co.svg" alt="">
+    <div>
+      <div>
+        <span class="company">Eyecam Co.</span>
+      </div>
+      <div class="position">Full Stack Engineer</div>
+      <div class="meta">3w ago • Full Time • Worldwide</div>
+    </div>
+  </div>
+  <div class="tags">
+    <div class="tag">Fullstack</div>
+    <div class="tag">Midweight</div>
+    <div class="tag">JavaScript</div>
+    <div class="tag">Python</div>
+    <div class="tag">Django</div>
+  </div>
+</div>
+<div class="job-card">
+  <div class="job-left">
+    <img src="the-air-filter-company.svg" alt="">
+    <div>
+      <div>
+        <span class="company">The Air Filter Company</span>
+      </div>
+      <div class="position">Front-end Dev</div>
+      <div class="meta">1mo ago • Part Time • Worldwide</div>
+    </div>
+  </div>
+  <div class="tags">
+    <div class="tag">Frontend</div>
+    <div class="tag">Junior</div>
+    <div class="tag">JavaScript</div>
+    <div class="tag">React</div>
+    <div class="tag">Sass</div>
+  </div>
+</div>
+</div>
+
+<script>
+const searchInput = document.getElementById("searchInput");
+const skillFilter = document.getElementById("skillFilter");
+const sortDate = document.getElementById("sortDate");
+const cards = document.querySelectorAll(".job-card");
+
+function parseDate(text) {
+  const parts = text.split(' ');
+  const num = parseInt(parts[0]);
+  if (text.includes('d')) return num;
+  if (text.includes('w')) return num * 7;
+  if (text.includes('mo')) return num * 30;
+  return 0;
+}
+
+function filterJobs() {
+  const searchValue = searchInput.value.toLowerCase();
+  const selectedSkill = skillFilter.value;
+  const sortValue = sortDate.value;
+
+  let cardsArray = Array.from(cards);
+  cardsArray.forEach(card => {
+    const title = card.querySelector('.position').textContent.toLowerCase();
+    const skills = Array.from(card.querySelectorAll('.tag')).map(t => t.textContent);
+
+    const matchSearch = title.includes(searchValue);
+    const matchSkill = selectedSkill === "" || skills.includes(selectedSkill);
+
+    card.style.display = (matchSearch && matchSkill) ? "flex" : "none";
+  });
+  cardsArray.sort((a,b) => {
+    const aDate = parseDate(a.querySelector('.meta').textContent);
+    const bDate = parseDate(b.querySelector('.meta').textContent);
+    return sortValue === "new" ? aDate - bDate : bDate - aDate;
+  });
+  cardsArray.forEach(card => card.parentNode.appendChild(card));
+}
+
+searchInput.addEventListener("input", filterJobs);
+skillFilter.addEventListener("change", filterJobs);
+sortDate.addEventListener("change", filterJobs);
+</script>
+
+</body>
+</html>
