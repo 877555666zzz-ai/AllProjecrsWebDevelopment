@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft - Официальный сайт | Главная</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #061406, #120612, #050512, #0b1a0d);
+            background-size: 400% 400%;
+            animation: bgFlow 18s ease-in-out infinite;
+            }
+        @keyframes bgFlow{
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+            }
+        .pixel {
+            font-family: 'Press Start 2P', cursive;
+        }
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #5D8C3A;
+            border-radius: 6px;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, rgba(13,13,13,0.98) 0%, rgba(26,26,26,0.95) 100%);
+            border-bottom: 4px solid #5D8C3A;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        .logo-img {
+            height: 50px;
+            width: auto;
+            filter: drop-shadow(0 4px 0 #3d6620);
+            transition: transform 0.3s;
+        }
+        .logo:hover .logo-img {
+            transform: scale(1.05);
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #5D8C3A;
+            border-bottom: 3px solid #5D8C3A;
+        }
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 28px;
+            cursor: pointer;
+        }
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0d1f0d 0%, #1a0d1a 50%, #0d0d1f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        .hero-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(93, 140, 58, 0.03) 40px, rgba(93, 140, 58, 0.03) 41px),
+                repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(93, 140, 58, 0.03) 40px, rgba(93, 140, 58, 0.03) 41px);
+            animation: gridMove 20s linear infinite;
+        }
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(40px, 40px); }
+        }
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            padding: 40px;
+            max-width: 900px;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
+            color: white;
+            padding: 10px 30px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            border: 3px solid #c44444;
+            box-shadow: 0 4px 0 #c44444;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .hero h1 {
+            font-size: 72px;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            text-shadow: 4px 4px 0 #000000, 0 0 60px rgba(93, 140, 58, 0.5);
+        }
+        .hero-subtitle {
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 50px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 40px;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #5D8C3A 0%, #4a7c2a 100%);
+            color: white;
+            border: 4px solid #3d6620;
+            box-shadow: 0 6px 0 #3d6620;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #3d6620;
+        }
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 4px solid #5D8C3A;
+            box-shadow: 0 6px 0 #5D8C3A;
+        }
+        .section {
+            padding: 120px 30px;
+        }
+        .section-alt {
+            background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%);
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        .section-label {
+            display: inline-block;
+            color: #5D8C3A;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 0 #000;
+        }
+        .section-desc {
+            font-size: 20px;
+            color: #888888;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .feature-card {
+            background: linear-gradient(145deg, #1f1f1f 0%, #151515 100%);
+            border: 3px solid #2a2a2a;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s;
+        }
+        .feature-card:hover {
+            border-color: #5D8C3A;
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+        .feature-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .feature-icon img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+        .feature-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .feature-text {
+            color: #888888;
+            line-height: 1.8;
+        }
+        .games-showcase {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        .game-card-large {
+            position: relative;
+            height: 500px;
+            border: 4px solid #2a2a2a;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s;
+        }
+        .game-card-large:hover {
+            border-color: #5D8C3A;
+            transform: scale(1.02);
+        }
+        .game-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            transition: all 0.4s;
+        }
+        .game-card-large:hover .game-bg-img {
+            opacity: 0.5;
+            transform: scale(1.1);
+        }
+        .game-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+        }
+        .game-tag {
+            display: inline-block;
+            background: #5D8C3A;
+            color: white;
+            padding: 8px 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .game-title {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        .game-desc {
+            color: #aaaaaa;
+            margin-bottom: 25px;
+        }
+        .game-link {
+            color: #5D8C3A;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .news-card {
+            background: #1a1a1a;
+            border: 3px solid #2a2a2a;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+        .news-card:hover {
+            border-color: #5D8C3A;
+            transform: translateY(-5px);
+        }
+        .news-image {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .news-date {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #5D8C3A;
+            color: white;
+            padding: 10px 20px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .news-content {
+            padding: 30px;
+        }
+        .news-category {
+            color: #5D8C3A;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .news-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .news-excerpt {
+            color: #888888;
+        }
+        .stats-section {
+            background: linear-gradient(135deg, #0d1f0d 0%, #1a0d1a 100%);
+            padding: 100px 30px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255,255,255,0.03);
+            border: 3px solid rgba(93, 140, 58, 0.2);
+            transition: all 0.4s;
+        }
+        .stat-item:hover {
+            border-color: #5D8C3A;
+            transform: translateY(-5px);
+        }
+        .stat-number {
+            font-size: 56px;
+            color: #5D8C3A;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 0 #000;
+        }
+        .stat-label {
+            font-size: 16px;
+            color: #888888;
+            text-transform: uppercase;
+        }
+        .cta-section {
+            padding: 150px 30px;
+            background: linear-gradient(135deg, #1a0d1a 0%, #0d1f0d 50%, #1a1a2e 100%);
+            text-align: center;
+        }
+        .cta-box {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px;
+            background: rgba(0,0,0,0.5);
+            border: 4px solid #5D8C3A;
+        }
+        .cta-title {
+            font-size: 48px;
+            margin-bottom: 30px;
+        }
+        .cta-text {
+            font-size: 20px;
+            color: #aaaaaa;
+            margin-bottom: 40px;
+        }
+        .footer {
+            background: #050505;
+            border-top: 4px solid #5D8C3A;
+            padding: 80px 30px 40px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+        .footer-brand {
+            max-width: 300px;
+        }
+        .footer-logo-img {
+            height: 40px;
+            width: auto;
+            margin-bottom: 20px;
+        }
+        .footer-desc {
+            color: #666666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        .footer-title {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        .footer-links a {
+            color: #666666;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .footer-links a:hover {
+            color: #5D8C3A;
+            padding-left: 10px;
+        }
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #444444;
+            font-size: 14px;
+        }
+        @media (max-width: 1024px) {
+            .features-grid,
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .games-showcase {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #0d0d0d;
+                flex-direction: column;
+                padding: 20px;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+            .features-grid,
+            .news-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero{
+  position: relative;
+  overflow: hidden;
+  min-height: 650px;
+}
+
+.hero-bg-video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.hero-overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.15);
+  z-index: 1;
+}
+
+.hero-content{
+  position: relative;
+  z-index: 2;
+}
+.cta-section{
+  position: relative;
+  overflow: hidden;
+  padding: 90px 30px;
+}
+
+.cta-bg{
+  background: url("o1.jpg") center/cover no-repeat;
+}
+
+.cta-bg::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.15)
+}
+
+.cta-box{
+  position: relative;
+  z-index: 1;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img class="logo-img" src="minecraft-logo-1013.png" alt="Minecraft Logo">
+            </a>
+            <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">Главная</a></li>
+                <li><a href="games.html">Игры</a></li>
+                <li><a href="community.html">Сообщество</a></li>
+                <li><a href="store.html">Магазин</a></li>
+                <li><a href="about.html">О нас</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+  <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata">
+    <source src="p4.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge pixel">Новое обновление!</div>
+    <h1 class="pixel">Создавай<br>Свой Мир</h1>
+    <p class="hero-subtitle">Погрузись в бесконечный мир блоков, приключений и возможностей!</p>
+
+    <div class="hero-buttons">
+      <a href="store.html" class="btn btn-primary">
+        <span>⬇</span> Купить игру
+      </a>
+      <a href="https://www.youtube.com/watch?v=nNgxwOhFQnI" class="btn btn-secondary">
+        <span>▶</span> Смотреть трейлер
+      </a>
+    </div>
+  </div>
+</section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label pixel">Возможности</div>
+                <h2 class="section-title pixel">Почему Minecraft?</h2>
+                <p class="section-desc">Открой для себя безграничные возможности самой популярной песочницы</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <img src="Бесконечный миры майнкрафт.png" alt="Worlds">
+                    </div>
+                    <h3 class="feature-title pixel">Бесконечные миры</h3>
+                    <p class="feature-text">Исследуй процедурно генерируемые миры площадью более 30 миллионов блоков</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <img src="Строй и создавай.png" alt="Build">
+                    </div>
+                    <h3 class="feature-title pixel">Строй и создавай</h3>
+                    <p class="feature-text">Создавай невероятные постройки от простых домов до сложных механизмов</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <img src="Выживание.png" alt="Survival">
+                    </div>
+                    <h3 class="feature-title pixel">Выживание</h3>
+                    <p class="feature-text">Сражайся с мобами, добывай ресурсы и выживай в опасном мире</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <img src="Мультиплеер.png" alt="Multiplayer">
+                    </div>
+                    <h3 class="feature-title pixel">Мультиплеер</h3>
+                    <p class="feature-text">Играй с друзьями на серверах до 1000 игроков</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <img src="Модификации.png" alt="Mods">
+                    </div>
+                    <h3 class="feature-title pixel">Модификации</h3>
+                    <p class="feature-text">Устанавливай тысячи модов и текстурпаков для кастомизации</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <img src="Образование.png" alt="Education">
+                    </div>
+                    <h3 class="feature-title pixel">Образование</h3>
+                    <p class="feature-text">Учись программированию и математике через игру</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label pixel">Наши игры</div>
+                <h2 class="section-title pixel">Вселенная Minecraft</h2>
+                <p class="section-desc">Исследуй разные миры и жанры во вселенной Minecraft</p>
+            </div>
+            <div class="games-showcase">
+                <div class="game-card-large fade-in">
+                    <img class="game-bg-img" src="1dd.avif" alt="Minecraft">
+                    <div class="game-content">
+                        <span class="game-tag pixel">Классика</span>
+                        <h3 class="game-title pixel">Minecraft</h3>
+                        <p class="game-desc">Оригинальная песочница, которая покорила миллионы сердец</p>
+                        <a href="games.html" class="game-link">Подробнее →</a>
+                    </div>
+                </div>
+                <div class="game-card-large fade-in">
+                    <img class="game-bg-img" src="Dungeons.avif" alt="Dungeons">
+                    <div class="game-content">
+                        <span class="game-tag pixel" style="background: #8B0000;">Action RPG</span>
+                        <h3 class="game-title pixel">Minecraft Dungeons</h3>
+                        <p class="game-desc">Экшен-RPG в стиле классических данжон-кроулеров</p>
+                        <a href="games.html" class="game-link">Подробнее →</a>
+                    </div>
+                </div>
+                <div class="game-card-large fade-in">
+                    <img class="game-bg-img" src="Minecraft Legends11.avif" alt="Legends">
+                    <div class="game-content">
+                        <span class="game-tag pixel" style="background: #4B0082;">Стратегия</span>
+                        <h3 class="game-title pixel">Minecraft Legends</h3>
+                        <p class="game-desc">Защити мир от разрушителей в стратегии реального времени</p>
+                        <a href="games.html" class="game-link">Подробнее →</a>
+                    </div>
+                </div>
+                <div class="game-card-large fade-in">
+                    <img class="game-bg-img" src="Education Edition.webp" alt="Education">
+                    <div class="game-content">
+                        <span class="game-tag pixel" style="background: #0066CC;">Образование</span>
+                        <h3 class="game-title pixel">Education Edition</h3>
+                        <p class="game-desc">Образовательная платформа для школ и университетов</p>
+                        <a href="games.html" class="game-link">Подробнее →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label pixel">Новости</div>
+                <h2 class="section-title pixel">Последние обновления</h2>
+                <p class="section-desc">Будь в курсе всех событий мира Minecraft</p>
+            </div>
+            <div class="news-grid">
+                <article class="news-card fade-in">
+                    <div class="news-image">
+                        <img src="Mounts of Mayhem вышло!.webp" alt="News 1">
+                        <span class="news-date">15 НОЯ</span>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-category">Обновление</div>
+                        <h3 class="news-title pixel">Mounts of Mayhem вышло!</h3>
+                        <p class="news-excerpt">Новое оружие, средства передвижения и враги ждут вас!</p>
+                    </div>
+                </article>
+                <article class="news-card fade-in">
+                    <div class="news-image">
+                        <img src="Realms Plus- Новые миры.png" alt="News 2">
+                        <span class="news-date">10 НОЯ</span>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-category">Realms</div>
+                        <h3 class="news-title pixel">Realms Plus: Новые миры</h3>
+                        <p class="news-excerpt">Добавлено 20 новых шаблонов миров для подписчиков!</p>
+                    </div>
+                </article>
+                <article class="news-card fade-in">
+                    <div class="news-image">
+                        <img src="Хэллоуин в Minecraft.jpg" alt="News 3">
+                        <span class="news-date">01 НОЯ</span>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-category">Событие</div>
+                        <h3 class="news-title pixel">Хэллоуин в Minecraft</h3>
+                        <p class="news-excerpt">Особые скины и события доступны ограниченное время!</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+<section class="cta-section cta-bg">
+  <div class="cta-box fade-in">
+    <h2 class="cta-title pixel">Готов начать приключение?</h2>
+    <p class="cta-text">Присоединяйся к миллионам игроков по всему миру!</p>
+    <a href="store.html" class="btn btn-primary" style="font-size: 20px; padding: 20px 50px;">
+      <span>🎮</span> Купить сейчас
+    </a>
+  </div>
+</section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img class="footer-logo-img" src="minecraft-logo-1013.png" alt="Minecraft Logo">
+                <p class="footer-desc">Minecraft — торговая марка Mojang Studios. Фан-проект.</p>
+            </div>
+            <div>
+                <h4 class="footer-title pixel">Игры</h4>
+                <ul class="footer-links">
+                    <li><a href="https://www.minecraft.net/ru-ru/about-dungeons">Minecraft</a></li>
+                    <li><a href="https://www.minecraft.net/ru-ru/store/minecraft-dungeons-luminous-night-adventure-pass">Dungeons</a></li>
+                    <li><a href="https://www.minecraft.net/ru-ru/about-legends">Legends</a></li>
+                    <li><a href="https://education.minecraft.net/en-us">Education</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title pixel">Сообщество</h4>
+                <ul class="footer-links">
+                    <li><a href="https://www.minecraft.net/ru-ru/article/bug-us-about-bugs">Форум</a></li>
+                    <li><a href="https://www.minecraft.net/ru-ru/article/bug-us-about-bugs">Сервера</a></li>
+                    <li><a href="https://www.minecraft.net/ru-ru/article/bug-us-about-bugs">Wiki</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title pixel">Поддержка</h4>
+                <ul class="footer-links">
+                    <li><a href="https://help.minecraft.net/hc/en-us">Центр помощи</a></li>
+                    <li><a href="https://help.minecraft.net/hc/en-us">FAQ</a></li>
+                    <li><a href="https://help.minecraft.net/hc/en-us">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Mojang Studios. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

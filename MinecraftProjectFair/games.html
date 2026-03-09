@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игры | Minecraft</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #061406, #120612, #050512, #0b1a0d);
+            background-size: 400% 400%;
+            animation: bgFlow 18s ease-in-out infinite;
+            }
+        @keyframes bgFlow{
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+            }
+        .pixel {
+            font-family: 'Press Start 2P', cursive;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, rgba(13,13,13,0.98) 0%, rgba(26,26,26,0.95) 100%);
+            border-bottom: 4px solid #5D8C3A;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        .logo-img {
+            height: 50px;
+            width: auto;
+            filter: drop-shadow(0 4px 0 #3d6620);
+            transition: transform 0.3s;
+        }
+        .logo:hover .logo-img {
+            transform: scale(1.05);
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #5D8C3A;
+            border-radius: 6px;
+        }
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #5D8C3A;
+            border-bottom: 3px solid #5D8C3A;
+        }
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 28px;
+            cursor: pointer;
+        }
+        .page-header {
+            min-height: 60vh;
+            background: linear-gradient(135deg, #0d1f0d 0%, #1a0d2e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 30px 60px;
+            position: relative;
+        }
+        .page-title {
+            font-size: 64px;
+            margin-bottom: 20px;
+            text-shadow: 4px 4px 0 #000;
+            position: relative;
+            z-index: 1;
+        }
+        .page-subtitle {
+            font-size: 20px;
+            color: #ffffff;
+            max-width: 600px;
+            position: relative;
+            z-index: 1;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .section {
+            padding: 100px 30px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .game-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 100px;
+            align-items: center;
+        }
+        .game-detail:nth-child(even) {
+            direction: rtl;
+        }
+        .game-detail:nth-child(even) > * {
+            direction: ltr;
+        }
+        .game-visual {
+            height: 500px;
+            border: 4px solid #2a2a2a;
+            overflow: hidden;
+            position: relative;
+        }
+        .game-visual-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .game-visual:hover .game-visual-img {
+            transform: scale(1.1);
+        }
+        .game-info h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: #5D8C3A;
+        }
+        .game-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .meta-tag {
+            padding: 8px 20px;
+            background: rgba(93, 140, 58, 0.2);
+            border: 2px solid #5D8C3A;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .game-description {
+            font-size: 18px;
+            color: #aaaaaa;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        .features-list {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+        .features-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #cccccc;
+        }
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #5D8C3A;
+            font-weight: bold;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 40px;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #5D8C3A 0%, #4a7c2a 100%);
+            color: white;
+            border: 4px solid #3d6620;
+            box-shadow: 0 6px 0 #3d6620;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #3d6620;
+        }
+        .platforms-section {
+            background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%);
+            padding: 100px 30px;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #5D8C3A;
+            border-radius: 6px;
+        }
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .platform-card {
+            background: #1a1a1a;
+            border: 3px solid #2a2a2a;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s;
+        }
+        .platform-card:hover {
+            border-color: #5D8C3A;
+            transform: translateY(-10px);
+        }
+        .platform-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+        }
+        .platform-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .platform-name {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .platform-status {
+            color: #5D8C3A;
+            font-size: 14px;
+        }
+        .comparison-section {
+            padding: 100px 30px;
+        }
+        .comparison-table {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        .comparison-table th,
+        .comparison-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 2px solid #2a2a2a;
+        }
+        .comparison-table th {
+            background: rgba(93, 140, 58, 0.2);
+            color: #5D8C3A;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .check {
+            color: #5D8C3A;
+            font-size: 20px;
+        }
+        .cross {
+            color: #666666;
+            font-size: 20px;
+        }
+        .footer {
+            background: #050505;
+            border-top: 4px solid #5D8C3A;
+            padding: 60px 30px;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .footer-links a {
+            color: #666666;
+            text-decoration: none;
+        }
+        .footer-links a:hover {
+            color: #5D8C3A;
+        }
+        @media (max-width: 1024px) {
+            .game-detail {
+                grid-template-columns: 1fr;
+            }
+            .platforms-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #0d0d0d;
+                flex-direction: column;
+                padding: 20px;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .page-title {
+                font-size: 36px;
+            }
+            .platforms-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .b12{
+            border-radius: 14px;
+        }
+.page-header{
+  position: relative;
+  overflow: hidden;
+  padding: 300px 20px;
+  text-align: center;
+}
+.page-bg-video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+.page-overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.15);
+  z-index: 1;
+}
+.page-header-inner{
+  position: relative;
+  z-index: 2;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img class="logo-img" src="minecraft-logo-1013.png" alt="Minecraft Logo">
+            </a>
+            <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="games.html" class="active">Игры</a></li>
+                <li><a href="community.html">Сообщество</a></li>
+                <li><a href="store.html">Магазин</a></li>
+                <li><a href="about.html">О нас</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<header class="page-header">
+  <video class="page-bg-video" autoplay muted loop playsinline preload="metadata">
+    <source src="р2.mp4" type="video/mp4">
+  </video>
+  <div class="page-overlay"></div>
+  <div class="page-header-inner">
+    <h1 class="page-title pixel">Наши Игры</h1>
+    <p class="page-subtitle">
+      Исследуй разные миры Minecraft — от классической песочницы до захватывающих приключений
+    </p>
+  </div>
+</header>
+
+    <section class="section">
+        <div class="container">
+            <div class="game-detail fade-in">
+                <div class="game-visual">
+                    <img class="game-visual-img" src="1dd.avif" alt="Minecraft">
+                </div>
+                <div class="game-info">
+                    <div class="game-meta">
+                        <span class="meta-tag">Sandbox</span>
+                        <span class="meta-tag">Multiplayer</span>
+                        <span class="meta-tag">2011</span>
+                    </div>
+                    <h2 class="pixel">Minecraft</h2>
+                    <p class="game-description">
+                        Классическая песочница, изменившая мир игр навсегда. Строй, исследуй, выживай и создавай в бесконечном мире блоков.
+                    </p>
+                    <ul class="features-list">
+                        <li>Бесконечные процедурно генерируемые миры</li>
+                        <li>Режимы Выживание, Творчество, Приключение и Хардкор</li>
+                        <li>Мультиплеер на тысячах серверов</li>
+                        <li>Поддержка модификаций и пользовательских карт</li>
+                        <li>Регулярные бесплатные обновления</li>
+                    </ul>
+                    <a href="store.html" class="btn btn-primary">Купить сейчас →</a>
+                </div>
+            </div>
+
+            <div class="game-detail fade-in">
+                <div class="game-visual">
+                    <img class="game-visual-img" src="Dungeons.avif" alt="Dungeons">
+                </div>
+                <div class="game-info">
+                    <div class="game-meta">
+                        <span class="meta-tag" style="border-color: #8B0000; color: #ff6b6b;">Action RPG</span>
+                        <span class="meta-tag" style="border-color: #8B0000; color: #ff6b6b;">2020</span>
+                    </div>
+                    <h2 class="pixel" style="color: #ff6b6b;">Minecraft Dungeons</h2>
+                    <p class="game-description">
+                        Экшен-RPG в стиле классических данжон-кроулеров. Сражайся с ордами мобов в подземельях!
+                    </p>
+                    <ul class="features-list">
+                        <li>Динамичный экшен с видом сверху</li>
+                        <li>Кооператив до 4 игроков</li>
+                        <li>Сотни уникальных предметов</li>
+                        <li>Регулярные сезонные обновления</li>
+                    </ul>
+                    <a href="store.html" class="btn btn-primary">Купить Dungeons →</a>
+                </div>
+            </div>
+
+            <div class="game-detail fade-in">
+                <div class="game-visual">
+                    <img class="game-visual-img" src="Minecraft Legends11.avif" alt="Legends">
+                </div>
+                <div class="game-info">
+                    <div class="game-meta">
+                        <span class="meta-tag" style="border-color: #4B0082; color: #9370DB;">Strategy</span>
+                        <span class="meta-tag" style="border-color: #4B0082; color: #9370DB;">2023</span>
+                    </div>
+                    <h2 class="pixel" style="color: #9370DB;">Minecraft Legends</h2>
+                    <p class="game-description">
+                        Защити мир Minecraft от разрушителей в стратегии реального времени.
+                    </p>
+                    <ul class="features-list">
+                        <li>Уникальный гибрид стратегии и экшена</li>
+                        <li>Кампания для одного игрока и PvP</li>
+                        <li>Процедурно генерируемые поля боя</li>
+                        <li>Управление армиями мобов</li>
+                    </ul>
+                    <a href="store.html" class="btn btn-primary">Купить Legends →</a>
+                </div>
+            </div>
+
+            <div class="game-detail fade-in">
+                <div class="game-visual">
+                    <img class="game-visual-img" src="Education Edition.webp" alt="Education">
+                </div>
+                <div class="game-info">
+                    <div class="game-meta">
+                        <span class="meta-tag" style="border-color: #0066CC; color: #4da6ff;">Education</span>
+                        <span class="meta-tag" style="border-color: #0066CC; color: #4da6ff;">2016</span>
+                    </div>
+                    <h2 class="pixel" style="color: #4da6ff;">Education Edition</h2>
+                    <p class="game-description">
+                        Образовательная платформа для школ и университетов. Используется в 115 странах мира.
+                    </p>
+                    <ul class="features-list">
+                        <li>Безопасная среда для обучения</li>
+                        <li>Инструменты для преподавателей</li>
+                        <li>Уроки по программированию</li>
+                        <li>Химическая лаборатория</li>
+                    </ul>
+                    <a href="store.html" class="btn btn-primary">Узнать больше →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="platforms-section" style="background: linear-gradient(135deg, #061406 0%, #120612 50%, #050512 100%);">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title pixel">Доступно на всех платформах</h2>
+                <p style="color: #888888;">Играй где угодно и когда угодно</p>
+            </div>
+            <div class="platforms-grid">
+                <div class="platform-card fade-in">
+                    <div class="platform-icon">
+                        <img class="b12" src="k1.png" alt="Windows">
+                    </div>
+                    <div class="platform-name">Windows</div>
+                    <div class="platform-status">Java & Bedrock</div>
+                </div>
+                <div class="platform-card fade-in">
+                    <div class="platform-icon">
+                        <img class="b12" src="k2.png" alt="Mac">
+                    </div>
+                    <div class="platform-name">macOS</div>
+                    <div class="platform-status">Java Edition</div>
+                </div>
+                <div class="platform-card fade-in">
+                    <div class="platform-icon">
+                        <img class="b12" src="k3.png" alt="Linux">
+                    </div>
+                    <div class="platform-name">Linux</div>
+                    <div class="platform-status">Java Edition</div>
+                </div>
+                <div class="platform-card fade-in">
+                    <div class="platform-icon">
+                        <img class="b12" src="k4.png" alt="Console">
+                    </div>
+                    <div class="platform-name">Консоли</div>
+                    <div class="platform-status">Bedrock Edition</div>
+                </div>
+                <div class="platform-card fade-in">
+                    <div class="platform-icon">
+                        <img class="b12" src="k5.png" alt="iOS">
+                    </div>
+                    <div class="platform-name">iOS</div>
+                    <div class="platform-status">Bedrock Edition</div>
+                </div>
+                <div class="platform-card fade-in">
+                    <div class="platform-icon">
+                        <img class="b12" src="k6.png" alt="Android">
+                    </div>
+                    <div class="platform-name">Android</div>
+                    <div class="platform-status">Bedrock Edition</div>
+                </div>
+                <div class="platform-card fade-in">
+                    <div class="platform-icon">
+                        <img class="b12" src="k7.png" alt="VR">
+                    </div>
+                    <div class="platform-name">VR</div>
+                    <div class="platform-status">Bedrock Edition</div>
+                </div>
+                <div class="platform-card fade-in">
+                    <div class="platform-icon">
+                        <img class="b12"src="k8.png" alt="TV">
+                    </div>
+                    <div class="platform-name">Smart TV</div>
+                    <div class="platform-status">Bedrock Edition</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title pixel">Сравнение изданий</h2>
+                <p style="color: #888888;">Выбери подходящую версию для себя</p>
+            </div>
+            <table class="comparison-table fade-in">
+                <thead>
+                    <tr>
+                        <th>Функция</th>
+                        <th>Java Edition</th>
+                        <th>Bedrock Edition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Модификации</td>
+                        <td><span class="check">✓</span> Полная поддержка</td>
+                        <td><span class="check">✓</span> Аддоны</td>
+                    </tr>
+                    <tr>
+                        <td>Шейдеры</td>
+                        <td><span class="check">✓</span> Да</td>
+                        <td><span class="cross">✗</span> Ограничено</td>
+                    </tr>
+                    <tr>
+                        <td>Кросс-платформа</td>
+                        <td><span class="cross">✗</span> Только PC</td>
+                        <td><span class="check">✓</span> Все платформы</td>
+                    </tr>
+                    <tr>
+                        <td>Marketplace</td>
+                        <td><span class="cross">✗</span> Нет</td>
+                        <td><span class="check">✓</span> Да</td>
+                    </tr>
+                    <tr>
+                        <td>Realms</td>
+                        <td><span class="check">✓</span> Java Realms</td>
+                        <td><span class="check">✓</span> Bedrock Realms</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="index.html">Главная</a>
+            <a href="games.html">Игры</a>
+            <a href="community.html">Сообщество</a>
+            <a href="store.html">Магазин</a>
+            <a href="about.html">О нас</a>
+        </div>
+        <p style="color: #444444;">© 2024 Mojang Studios</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

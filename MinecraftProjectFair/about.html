@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас | Minecraft</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #5D8C3A;
+            border-radius: 6px;
+        }
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #061406, #120612, #050512, #0b1a0d);
+            background-size: 400% 400%;
+            animation: bgFlow 18s ease-in-out infinite;
+            }
+        @keyframes bgFlow{
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+            }
+        .pixel {
+            font-family: 'Press Start 2P', cursive;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, rgba(13,13,13,0.98) 0%, rgba(26,26,26,0.95) 100%);
+            border-bottom: 4px solid #5D8C3A;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        .logo-img {
+            height: 50px;
+            width: auto;
+            filter: drop-shadow(0 4px 0 #3d6620);
+            transition: transform 0.3s;
+        }
+        .logo:hover .logo-img {
+            transform: scale(1.05);
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #5D8C3A;
+            border-bottom: 3px solid #5D8C3A;
+        }
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 28px;
+            cursor: pointer;
+        }
+        .page-header {
+            min-height: 50vh;
+            background: linear-gradient(135deg, #2e1a0d 0%, #0d1f0d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 30px 60px;
+        }
+        .page-title {
+            font-size: 56px;
+            margin-bottom: 20px;
+            text-shadow: 4px 4px 0 #000;
+        }
+        .page-subtitle {
+            font-size: 18px;
+            color: #ffffff;
+            max-width: 600px;
+        }
+        .section {
+            padding: 80px 30px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        .story-content {
+            font-size: 18px;
+            line-height: 2;
+            color: #aaaaaa;
+        }
+        .story-content p {
+            margin-bottom: 25px;
+        }
+        .highlight {
+            color: #5D8C3A;
+            font-weight: 700;
+        }
+        .timeline-section {
+            background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%);
+        }
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #2a2a2a;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            padding-left: 40px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: #5D8C3A;
+            border: 4px solid #1a1a1a;
+            box-shadow: 0 0 0 4px #5D8C3A;
+        }
+        .timeline-year {
+            font-size: 14px;
+            color: #5D8C3A;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .timeline-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .timeline-desc {
+            color: #888888;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        .team-card {
+            text-align: center;
+        }
+        .team-avatar {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border: 5px solid #3d6620;
+            overflow: hidden;
+        }
+        .team-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .team-name {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        .team-role {
+            color: #5D8C3A;
+            font-size: 14px;
+        }
+        .footer {
+            background: #050505;
+            border-top: 4px solid #5D8C3A;
+            padding: 50px 30px;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+        .footer-links a {
+            color: #666666;
+            text-decoration: none;
+        }
+        .footer-links a:hover {
+            color: #5D8C3A;
+        }
+        @media (max-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #0d0d0d;
+                flex-direction: column;
+                padding: 20px;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .page-title {
+                font-size: 32px;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .page-header{
+  position: relative;
+  overflow: hidden;
+  padding: 310px 20px;
+  text-align: center;
+}
+
+.page-bg-video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.page-overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.15);
+  z-index: 1;
+}
+
+.page-header-inner{
+  position: relative;
+  z-index: 2;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img class="logo-img" src="minecraft-logo-1013.png" alt="Minecraft Logo">
+            </a>
+            <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="games.html">Игры</a></li>
+                <li><a href="community.html">Сообщество</a></li>
+                <li><a href="store.html">Магазин</a></li>
+                <li><a href="about.html" class="active">О нас</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<header class="page-header">
+
+  <video class="page-bg-video" autoplay muted loop playsinline preload="metadata">
+    <source src="р1.mp4" type="video/mp4">
+  </video>
+
+  <div class="page-overlay"></div>
+
+  <div class="page-header-inner">
+    <h1 class="page-title pixel">Наша история</h1>
+    <p class="page-subtitle">От маленькой инди-игры до мирового феномена</p>
+  </div>
+</header>
+
+    <section class="section">
+        <div class="container">
+            <div class="story-content fade-in">
+                <p>
+                    <span class="highlight">Minecraft</span> был создан Маркусом Перссоном (Notch) и выпущен в 2011 году. Начавшись как небольшой проект одного человека, игра быстро стала глобальным явлением.
+                </p>
+                <p>
+                    В 2014 году <span class="highlight">Mojang</span> была приобретена Microsoft за $2.5 миллиарда, что позволило команде расшириться и создать еще больше удивительных проектов.
+                </p>
+                <p>
+                    Сегодня Minecraft — это не просто игра. Это <span class="highlight">платформа для творчества</span>, образования и общения.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section timeline-section" style="background: linear-gradient(135deg, #061406, #120612, #050512, #0b1a0d);">
+        <div class="container"">
+            <div class="section-header fade-in">
+                <h2 class="section-title pixel">Хронология</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2009</div>
+                    <h3 class="timeline-title">Начало разработки</h3>
+                    <p class="timeline-desc">Маркус Перссон начинает работу над Cave Game.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2011</div>
+                    <h3 class="timeline-title">Официальный релиз</h3>
+                    <p class="timeline-desc">Minecraft 1.0 выходит на MineCon 2011.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2014</div>
+                    <h3 class="timeline-title">Приобретение Microsoft</h3>
+                    <p class="timeline-desc">Microsoft покупает Mojang за $2.5 миллиарда.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2020</div>
+                    <h3 class="timeline-title">Dungeons и Education</h3>
+                    <p class="timeline-desc">Расширение вселенной новыми играми.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2023</div>
+                    <h3 class="timeline-title">Legends и будущее</h3>
+                    <p class="timeline-desc">Выпуск Minecraft Legends.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: linear-gradient(135deg, #061406, #120612, #050512, #0b1a0d);">
+        <div class="container">
+            <div class="section-header fade-in">ө
+                <h2 class="section-title pixel">Команда</h2>
+                <p style="color: #888888;">Люди, создающие магию</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card fade-in">
+                    <div class="team-avatar">
+                        <img src="Аксель Чарльз.jpeg" alt="Axel">
+                    </div>
+                    <h4 class="team-name">Аксель Чарльз</h4>
+                    <span class="team-role">Глава Mojang</span>
+                </div>
+                <div class="team-card fade-in">
+                    <div class="team-avatar">
+                        <img src="Агнес Ларссон.png" alt="Agnes">
+                    </div>
+                    <h4 class="team-name">Агнес Ларссон</h4>
+                    <span class="team-role">Ведущий разработчик</span>
+                </div>
+                <div class="team-card fade-in">
+                    <div class="team-avatar">
+                        <img src="Йенс Бергенстен.webp" alt="Jens">
+                    </div>
+                    <h4 class="team-name">Йенс Бергенстен</h4>
+                    <span class="team-role">Главный дизайнер</span>
+                </div>
+                <div class="team-card fade-in">
+                    <div class="team-avatar">
+                        <img src="Мария Олсон.jpg" alt="Maria">
+                    </div>
+                    <h4 class="team-name">Мария Олсон</h4>
+                    <span class="team-role">Художник</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="index.html">Главная</a>
+            <a href="games.html">Игры</a>
+            <a href="community.html">Сообщество</a>
+            <a href="store.html">Магазин</a>
+            <a href="about.html">О нас</a>
+        </div>
+        <p style="color: #444;">© 2024 Minecraft Fan Site</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

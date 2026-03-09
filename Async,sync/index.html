@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Task 1 - Loading + Error</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui;
+      background: #0f172a;
+      color: #e5e7eb;
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      padding: 16px;
+    }
+    .card {
+      width: 100%;
+      max-width: 720px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, .35);
+    }
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 10px 14px;
+      background: #3b82f6;
+      color: white;
+      cursor: pointer;
+    }
+    button:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
+    .row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .status {
+      font-size: 14px;
+      opacity: .9;
+    }
+    .error {
+      color: #fca5a5;
+    }
+    ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+    }
+    li {
+      margin: 6px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Task 1: GET + Loading + Error</h2>
+    <div class="row">
+      <button id="btn">Load users</button>
+      <span id="status" class="status"></span>
+    </div>
+    <ul id="list"></ul>
+  </div>
+
+  <script>
+    const btn = document.getElementById("btn");
+    const statusEl = document.getElementById("status");
+    const list = document.getElementById("list");
+
+    function setStatus(text, type = "") {
+      statusEl.textContent = text;
+      statusEl.className = "status " + type;
+    }
+
+    btn.addEventListener("click", async () => {
+      list.innerHTML = "";
+      setStatus("Loading...");
+      btn.disabled = true;
+
+      try {
+        const res = await fetch("https://jsonplaceholder.typicode.com/users");
+
+        if (!res.ok) throw new Error("HTTP error: " + res.status);
+
+        const users = await res.json();
+        users.forEach(u => {
+          const li = document.createElement("li");
+          li.textContent = u.name;
+          list.appendChild(li);
+        });
+
+        setStatus("Loaded: " + users.length);
+      } catch (err) {
+        setStatus("Error: " + err.message, "error");
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
